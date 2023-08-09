@@ -12,17 +12,14 @@ public class TestWorld extends World {
 
 	@Override
 	public TestWorld init() {
-		this.mapName = "castle2";
+		this.mapName = "test_map1";
 		super.init();
 		return this;
 	}
 
 	@Override
 	public void addObjects() {
-
 		objects.addObject(new PlayerObject(new Vector2(1500, 600)).setManager(objects));
-		testNPC = new NPC("testNpc", new Vector2(850, 650));
-		objects.addObject(testNPC);
 	}
 
 }

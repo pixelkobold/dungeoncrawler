@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import com.pixelkobold.assets.AssetCategory;
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.assets.Assets;
 import com.pixelkobold.config.Config;
@@ -26,37 +27,34 @@ public class LoadingScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		batch.begin();
-		batch.draw(bg, 0, 0);
-		batch.end();
-		switch (count) {
-		case 0:
-			try {
-				Log.init();
-				Config.init();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			break;
-		case 1:
-			Assets.addAssets();
-			break;
-		case 2:
-//			AssetManager.setGroups(AssetCategory.TEMP);
-			AssetManager.loadAll();
-			break;
-		case 3:
-			break;
-		case 4:
+
+        batch.draw(bg, 0, 0);
+
+        batch.end();
+
+        switch (count) {
+            case 0 -> {
+                try {
+                    Log.init();
+                    Config.init();
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            case 1 -> Assets.addAssets();
+            case 2 -> {
+                AssetManager.setGroups();
+
+                AssetManager.loadAll();
+            }
 //			GameObject.populateMap();
-			break;
-		case 5:
-			Worlds.loadAll();
-			break;
-		case 20:
-			((Game) Gdx.app.getApplicationListener()).setScreen(Screens.MAIN_MENU_SCREEN);
-		}
+            case 5 -> Worlds.loadAll();
+            case 20 -> ((Game) Gdx.app.getApplicationListener()).setScreen(Screens.MAIN_MENU_SCREEN);
+        }
+
 		count++;
 	}
 

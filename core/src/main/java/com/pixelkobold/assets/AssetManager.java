@@ -27,7 +27,6 @@ public class AssetManager {
 					Log.log(LogLevel.INFO, "Asset with name " + asset.name + " is already loaded! Skipping!");
 					continue;
 				}
-
 				assets.put(asset.name, new Asset(asset.type, asset.path));
 			}
 		}
@@ -41,17 +40,13 @@ public class AssetManager {
 		descriptors.get(asset.group).add(asset);
 
 		Log.log(LogLevel.INFO, "Adding Asset to load. Asset: " + asset.toString());
-		// toLoad.add(asset);
 	}
 
 	public static void setGroups(AssetCategory... groups){
 		loadGroups = new Array<>(groups);
-//		loadGroups.add(AssetCategory.MAIN);
-//		loadGroups.add(AssetCategory.GUI);
+		loadGroups.add(AssetCategory.MAIN);
+		loadGroups.add(AssetCategory.GUI);
 	}
-	// public static void addToLoad(AssetType type, String name, String path) {
-	// toLoad.add(new AssetDescriptor(type, name, path));
-	// }
 
 	/**
 	 *

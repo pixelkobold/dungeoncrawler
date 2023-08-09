@@ -9,33 +9,6 @@ import com.badlogic.gdx.Input.Keys;
 
 public class Config {
 
-	protected static final class IniProperty {
-		private String prop;
-
-		IniProperty(String s) {
-			prop = s;
-		}
-
-		public int asInt() {
-			return Integer.parseInt(prop);
-		}
-
-		public float asFloat() {
-			return Float.parseFloat(prop);
-		}
-
-		public char asChar() {
-			return prop.charAt(0);
-		}
-
-		public boolean asBool() {
-			return Boolean.parseBoolean(prop);
-		}
-	}
-
-
-	// some default values
-
 	// [Display
 	public static int screenHeight = 540;
 	public static int screenWidth = 950;
@@ -54,12 +27,11 @@ public class Config {
 	public static int keyInterract = Keys.E;
 	public static int keyInventory = Keys.I;
 
-	// public static int keyZoom = Input.Buttons.BACK;
 
 	private static File configFile = new File(Gdx.files.getLocalStoragePath() + "config.ini");
 
 
-	public static boolean debug = false;
+	public static boolean debug = true;
 
 
 	public static void init() throws Exception {

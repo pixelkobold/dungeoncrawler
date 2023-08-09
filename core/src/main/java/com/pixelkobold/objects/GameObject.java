@@ -18,7 +18,7 @@ import lombok.Getter;
 @Getter
 public abstract class GameObject {
 public static class GameObjectProps{
-	public String action, name, sprite;
+	public String name, sprite;
 }
 
 	/**

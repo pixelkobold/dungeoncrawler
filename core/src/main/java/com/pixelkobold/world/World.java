@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -42,14 +43,11 @@ public abstract class World extends InputAdapter {
 
 	public MapRenderer mapRenderer;
 
-	// private Array<MapCollisionObject> collisions;
+	 private Array<MapCollisionObject> collisions;
 
 	public static Vector2 mousePosition = new Vector2();
 
 	protected Matrix4 normalProjection = new Matrix4();
-
-	// protected GuiManager gui = new GuiManager();
-	// protected DialogWindowManager dialogs = new DialogWindowManager();
 
 	public String mapName;
 
@@ -81,15 +79,7 @@ public abstract class World extends InputAdapter {
 		addTransitionObjects();
 		objects.initAll();
 
-		// normalProjection.setToOrtho2D(0, 0, Gdx.graphics.getWidth(),
-		// Gdx.graphics.getHeight());
 
-		// addGuiElements();
-		// gui.initAll();
-		// GuiRenderer.setGui(gui);
-
-		// this.dialogs.initAll();
-		// System.out.println(mapName);
 		return this;
 	}
 
@@ -112,37 +102,6 @@ public abstract class World extends InputAdapter {
 		}
 
 		objects.addObject(new PlayerObject(targetPos).setManager(objects));
-
-		map.getLayers().get("gameObjectLayer").getObjects().forEach(mo -> {
-			MapProperties p = mo.getProperties();
-			GameObject o;
-
-			switch (p.get("type", String.class)) {
-			case "living":
-				o = new LivingObject("", new Vector2());
-			case "static":
-				o = new StaticObject("", new Vector2());
-			default:
-				o = new GameObject("", new Vector2()) {
-				};
-			}
-
-			GameObjectProps gop = GameObject.propsMap.get(p.get("json", String.class));
-			if (gop == null)
-				gop = new GameObjectProps(); // No such json in map
-
-			o.setName(either(o.getName(), either(gop.name, p.get("name", String.class))));
-			Asset a = AssetManager.get(either(gop.sprite, either(p.get("sprite", String.class), o.getName())));
-			if (a != null)
-				o.sprite = a.asSprite();
-
-		});
-	}
-
-	private static <T> T either(T a, T b) {
-		if (a == null || ((String) a) == "")
-			return b;
-		return a;
 	}
 
 	public void render(float delta) {
@@ -153,22 +112,11 @@ public abstract class World extends InputAdapter {
 		camViewport.apply();
 		mousePosition.set(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
 		objects.setMousePosition(mousePosition);
+
 		DebugShapeRenderer.setCamera(cam);
 
 		mapRenderer.setView(cam);
 		mapRenderer.render(objects, delta);
-
-		// mapRenderer.render1
-
-		try {
-			batch.getColor();
-		} catch (NullPointerException e) {
-			batch = new SpriteBatch();
-		}
-		batch.setProjectionMatrix(cam.combined);
-		batch.begin();
-
-		batch.end();
 
 		DebugShapeRenderer.drawAll();
 
@@ -177,16 +125,17 @@ public abstract class World extends InputAdapter {
 	public void addCollisionObjects() {
 		TiledMap map = AssetManager.get(mapName).asMap();
 
-		TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get("Collision");
-		for (int x = 0; x < layer.getWidth(); x++) {
-			for (int y = 0; y < layer.getHeight(); y++) {
-				Cell cell = layer.getCell(x, y);
-				if (cell != null) {
-					Vector2 p = new Vector2(x, y);
-					objects.addObject(new MapCollisionObject(p));
-				}
-			}
-		}
+//        TODO: Zrobić to dobrze
+//		TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get("Collision");
+//		for (int x = 0; x < layer.getWidth(); x++) {
+//			for (int y = 0; y < layer.getHeight(); y++) {
+//				Cell cell = layer.getCell(x, y);
+//				if (cell != null) {
+//					Vector2 p = new Vector2(x, y);
+//					objects.addObject(new MapCollisionObject(p));
+//				}
+//			}
+//		}
 
 	}
 

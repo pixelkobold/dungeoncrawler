@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import com.pixelkobold.renderers.DebugShapeRenderer;
 
+// TODO: Wyjebać
 //TODO: facing dir, images based on that;
 public class NPC extends LivingObject implements IInteractable {
 
@@ -24,11 +25,6 @@ public class NPC extends LivingObject implements IInteractable {
 	@Override
 	public void init() {
 		super.init();
-
-		//currentDialog = dialogNames.first();
-		//for (String dialog : dialogNames) {
-		//	dialogs.put(dialog, new DialogWindow(dialog, this));
-		//}
 
 		TextureRegion[][] frames = this.sprite.split(32, 64);
 
@@ -83,17 +79,4 @@ public class NPC extends LivingObject implements IInteractable {
 		DebugShapeRenderer.drawRectangle(box);
 
 	}
-
-//	public void renderDialogs(SpriteBatch batch, float dt, BitmapFont font, GlyphLayout layout) {
-//		dialogs.get(currentDialog).render(batch, dt, font, layout);
-//	}
-
-//	 */
-//	public void setDialogNames(String[] strings) {
-//		this.dialogNames = new Array<>(strings);
-//	}
-
-//	public HashMap<String, DialogWindow> dialogs() {
-//		return dialogs;
-//	}
 }

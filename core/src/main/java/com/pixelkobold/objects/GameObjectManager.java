@@ -24,17 +24,17 @@ public class GameObjectManager implements Disposable {
 
 	public void initAll(){
 		if(inited){
-			System.out.println("Tryed to init GameObjectManager more than once");
+			System.out.println("Tried to init GameObjectManager more than once");
 			return;
 		}
-		if(objects.random() == null){
+		if(objects.size == 0){
 			System.out.println("No GameObjects to init. Add at least one and try again");
 			return;
 		}
 
 		for(GameObject o : objects){
 			if(!(o instanceof MapCollisionObject)){
-//				Log.log(LogLevel.DEBUG, "Initing Object: " + o.getName());
+				Log.log(LogLevel.DEBUG, "Initing Object: " + o.getName());
 			}
 			o.init();
 		}

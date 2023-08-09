@@ -48,8 +48,6 @@ public class MainMenuScreen implements Screen {
 		atlas = new TextureAtlas("uiskin.atlas");
 		skin = new Skin(Gdx.files.internal("uiskin.json"));
 		table = new Table(skin);
-		// table.setBounds(0, 0, Gdx.graphics.getWidth(),
-		// Gdx.graphics.getHeight());
 
 		Gdx.input.setInputProcessor(stage);
 
@@ -83,7 +81,7 @@ public class MainMenuScreen implements Screen {
 		stage.addActor(table);
 
 		if(Config.debug) table.setDebug(true);
-
+table.setDebug(Config.debug);
 	}
 
 	@Override

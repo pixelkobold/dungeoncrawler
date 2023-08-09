@@ -51,8 +51,7 @@ public class PlayerObject extends LivingObject {
 		box.y += 7;
 		box.x += 7;
 		// box.height -= 20;
-		Input in = Gdx.input;
-		processInput(in);
+        processInput(Gdx.input);
 		drawAnimations(batch, dt);
 		move(dt);
 		cone.updateCone();
@@ -93,15 +92,18 @@ public class PlayerObject extends LivingObject {
 			tmp.y = 0;
 			isMovingY = false;
 		}
+
 		if (in.isKeyPressed(Keys.SHIFT_LEFT))
 			tmp.scl(2);
-		moveBy(tmp);
+
+        moveBy(tmp);
 
 		if (in.isKeyJustPressed(Config.keyInterract)) {
 			interact();
 		}
-		if (in.isKeyJustPressed(Keys.B))
-			System.out.println("Player: " + pos.toString());
+		if (in.isKeyJustPressed(Keys.B)) {
+            System.out.println("Player: " + pos.toString());
+        }
 
 	}
 

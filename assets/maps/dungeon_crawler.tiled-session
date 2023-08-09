@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "test_map1.tmx",
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
         "rules",
@@ -20,8 +20,8 @@
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 214.75,
-                "y": 130.5
+                "x": 145,
+                "y": 117.5
             }
         },
         "corridor1.tmx": {
@@ -33,11 +33,11 @@
             }
         },
         "rules/cleanup.tmx": {
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 156.125,
-                "y": 79.75
+                "x": 109.66666666666669,
+                "y": 103.33333333333331
             }
         },
         "rules/torches.tmx": {
@@ -52,22 +52,36 @@
             "scaleInDock": 1
         },
         "rules/walls.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 1,
+            "scale": 0.75,
+            "selectedLayer": 6,
             "viewCenter": {
-                "x": 242.33333333333331,
-                "y": 193.99999999999997
+                "x": 201.33333333333326,
+                "y": 289.33333333333326
             }
         },
         "spr_torch.tsx": {
             "scaleInDock": 1
         },
-        "test_map1.tmx": {
-            "scale": 2,
+        "testIsland.tmx": {
+            "scale": 0.51596875,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 149.25,
-                "y": 159.5
+                "x": 721.9429471261583,
+                "y": 746.1692205196534
+            }
+        },
+        "testIsland.tmx#terrainAtlas": {
+            "scaleInDock": 1
+        },
+        "test_map1.tmx": {
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 1.5,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 111,
+                "y": 173.33333333333331
             }
         },
         "ts_dungeon.tsx": {
@@ -92,15 +106,19 @@
     "map.tileWidth": 16,
     "map.width": 40,
     "openFiles": [
-        "rules/walls.tmx"
+        "rules/walls.tmx",
+        "ts_dungeon.tsx",
+        "test_map1.tmx"
     ],
     "project": "dungeon_crawler.tiled-project",
     "property.type": "float",
     "recentFiles": [
-        "rules/cleanup.tmx",
+        "test_map1.tmx",
         "rules/walls.tmx",
-        "rules/torches.tmx",
         "ts_dungeon.tsx",
+        "testIsland.tmx",
+        "rules/cleanup.tmx",
+        "rules/torches.tmx",
         "walls.tmx",
         "corridor1.tmx"
     ]

@@ -22,6 +22,7 @@ public class MapCollisionObject extends StaticObject {
 
 	public void init() {
 		//super.init();
+//        TODO: WTF?
 		int tilesY = (int) this.pos.y;
 		int posY = tilesY * 32;
 
@@ -31,7 +32,7 @@ public class MapCollisionObject extends StaticObject {
 		this.sprite = AssetManager.get("emptyPixel").asSprite();
 
 		if(box==null)
-		box = new Rectangle(pos.x, pos.y, 32, 32);
+	    	box = new Rectangle(pos.x, pos.y, 32, 32);
 	}
 
 	public MapCollisionObject setBox(float width, float height){

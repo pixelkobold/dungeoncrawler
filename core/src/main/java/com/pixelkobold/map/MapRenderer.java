@@ -28,7 +28,6 @@ public class MapRenderer extends OrthogonalTiledMapRenderer {
 				if(layer instanceof TiledMapTileLayer){
 					renderTileLayer((TiledMapTileLayer) layer);
 				}
-
 				if(layer instanceof TiledMapImageLayer){
 					renderImageLayer((TiledMapImageLayer) layer);
 				}else{

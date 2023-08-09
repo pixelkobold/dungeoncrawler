@@ -59,10 +59,11 @@ public class PlayingScreen implements Screen {
 	@Override
 	public void show() {
 		if (world == null)
-			world = Worlds.get("maptest");
+			world = Worlds.get("test_map1");
 
 		Log.log(LogLevel.DEBUG, "Initing world: " + world.mapName);
-		world.init();
+
+        world.init();
 
 		setupUI();
 

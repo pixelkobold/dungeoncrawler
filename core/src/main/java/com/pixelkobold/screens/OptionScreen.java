@@ -118,6 +118,7 @@ public class OptionScreen implements Screen {
 		resolScroll.setHeight(700);
 
 		Label fullScreenLabel = new Label("", skin);
+
 		fullScreenLabel.addAction(Actions.forever(new Action() {
 			@Override
 			public boolean act(float delta){
