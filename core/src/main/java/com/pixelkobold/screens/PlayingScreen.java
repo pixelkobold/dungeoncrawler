@@ -73,7 +73,7 @@ public class PlayingScreen implements Screen {
 	private void setupUI() {
 		stage = new Stage();
 		skin = new Skin(Gdx.files.internal("uiskin.json"));
-		Skin bars = new Skin(new TextureAtlas(Gdx.files.internal("bars.pack")));
+		Skin bars = new Skin(new TextureAtlas(Gdx.files.internal("ui/bars.pack")));
 		Table playerStats = new Table();
 		ProgressBarStyle HPBarsStyle = new ProgressBarStyle();
 		ProgressBarStyle MPBarsStyle = new ProgressBarStyle();

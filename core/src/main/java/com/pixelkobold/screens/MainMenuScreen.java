@@ -18,110 +18,89 @@ import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.config.Config;
 
 public class MainMenuScreen implements Screen {
-	// TODO: write GUI. Again
+    private Sprite bg;
 
-	private Sprite bg;
+    private Stage stage;
+    private SpriteBatch batch = new SpriteBatch();
 
-	// private GuiManager mainGui;
-	// private GuiManager optionsGui;
+    @Override
+    public void show() {
+        setupGUI();
+        bg = AssetManager.get("MainBack").asSprite();
+    }
 
-	private SpriteBatch batch = new SpriteBatch();
+    public void setupGUI() {
+        stage = new Stage();
 
-	protected Table table;
-	protected Stage stage;
-	protected Skin skin;
-	protected TextureAtlas atlas;
-	protected BitmapFont fontWhite, fontBlack;
+        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        Table table = new Table(skin);
 
-	protected TextButton buttonPlay;
+        Gdx.input.setInputProcessor(stage);
 
-	@Override
-	public void show(){
-		setupGUI();
+        TextButton buttonPlay = new TextButton("Start Game", skin);
+        buttonPlay.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+        buttonPlay.setSize(100, 20);
 
-//		bg = AssetManager.get("MAIN_BACK").asSprite();
-	}
+        buttonPlay.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Screens.setScreen(Screens.PLAY_SCREEN);
+            }
+        });
+        table.add(buttonPlay);
+        table.row();
 
-	public void setupGUI(){
-		stage = new Stage();
+        TextButton buttonOptions = new TextButton("Options", skin);
+        buttonOptions.setSize(100, 20);
+        buttonOptions.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Screens.setScreen(Screens.OPTIONS_SCREEN);
+            }
+        });
 
-		atlas = new TextureAtlas("uiskin.atlas");
-		skin = new Skin(Gdx.files.internal("uiskin.json"));
-		table = new Table(skin);
+        table.add(buttonOptions);
+        table.setFillParent(true);
 
-		Gdx.input.setInputProcessor(stage);
+        stage.addActor(table);
 
-		buttonPlay = new TextButton("Start Game", skin, "default");
-		buttonPlay.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-		buttonPlay.setSize(100, 20);
+        table.setDebug(Config.debug);
+    }
 
-		buttonPlay.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y){
-				Screens.setScreen(Screens.PLAY_SCREEN);
-			}
-		});
-		table.add(buttonPlay);
-		table.row();
+    @Override
+    public void render(float delta) {
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        if (bg != null) {
+            batch.draw(bg,0 ,0);
+        }
+        batch.end();
+        stage.act(delta);
+        stage.draw();
+    }
 
-		TextButton buttonOptions = new TextButton("Options", skin, "default");
-		// buttonOptions.setPosition(Gdx.graphics.getWidth() / 2,
-		// Gdx.graphics.getHeight() / 2 - (buttonPlay.getHeight() + 10));
-		buttonOptions.setSize(100, 20);
-		buttonOptions.addListener(new ClickListener() {
-			@Override
-			public void clicked(InputEvent event, float x, float y){
-				Screens.setScreen(Screens.OPTIONS_SCREEN);
-			};
-		});
+    @Override
+    public void resize(int width, int height) {
+        if (stage != null) {
+            stage.getViewport().update(width, height, true);
+        }
+    }
 
-		table.add(buttonOptions);
-		table.setFillParent(true);
+    @Override
+    public void pause() {
+    }
 
-		stage.addActor(table);
+    @Override
+    public void resume() {
+    }
 
-		if(Config.debug) table.setDebug(true);
-table.setDebug(Config.debug);
-	}
+    @Override
+    public void hide() {
+    }
 
-	@Override
-	public void render(float delta){
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		batch.begin();
-//		batch.draw(bg, 0, 0);
-
-		batch.end();
-
-		stage.act(delta);
-		stage.draw();
-
-	}
-
-	@Override
-	public void resize(int width, int height){
-		if(stage != null) stage.getViewport().update(width, height, true);
-	}
-
-	@Override
-	public void pause(){
-
-	}
-
-	@Override
-	public void resume(){
-
-	}
-
-	@Override
-	public void hide(){
-
-	}
-
-	@Override
-	public void dispose(){
-		stage.dispose();
-		batch.dispose();
-	}
+    @Override
+    public void dispose() {
+        stage.dispose();
+    }
 
 }
