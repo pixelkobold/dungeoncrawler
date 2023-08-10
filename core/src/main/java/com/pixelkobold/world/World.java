@@ -1,5 +1,6 @@
 package com.pixelkobold.world;
 
+import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
@@ -27,15 +28,11 @@ import com.pixelkobold.screens.Screens;
 
 public abstract class World extends InputAdapter {
 
-    public GameObjectManager objects = new GameObjectManager();
-
     protected SpriteBatch batch;
     public static OrthographicCamera cam;
     public static Viewport camViewport;
 
     public MapRenderer mapRenderer;
-
-    private Array<MapCollisionObject> collisions;
 
     public static Vector2 mousePosition = new Vector2();
 
@@ -45,28 +42,22 @@ public abstract class World extends InputAdapter {
 
     private Vector2 targetPos;
 
+    private Engine engine;
+
     public World init() {
-        if (objects == null)
-            objects = new GameObjectManager();
-
-
-        objects.drop();
-
         batch = new SpriteBatch();
+
+        engine = new Engine();
 
         cam = new OrthographicCamera();
         camViewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
         cam.zoom = .5f;
-        AssetManager.load(
-            new AssetDescriptor(AssetType.MAP, this.mapName, "maps/" + this.mapName + ".tmx"));
+        AssetManager.load(new AssetDescriptor(AssetType.MAP, this.mapName, "maps/" + this.mapName + ".tmx"));
 
         mapRenderer = new MapRenderer(AssetManager.get(this.mapName).asMap());
 
         addObjects();
-        addCollisionObjects();
         addTransitionObjects();
-        objects.initAll();
-
 
         return this;
     }
@@ -76,7 +67,6 @@ public abstract class World extends InputAdapter {
         map.getLayers().get("transitions").getObjects().forEach((MapObject object) -> {
             MapProperties props = object.getProperties();
 
-            objects.addObject(new TransitionObject(props));
         });
     }
 
@@ -89,22 +79,22 @@ public abstract class World extends InputAdapter {
             targetPos = new Vector2(x, y);
         }
 
-        objects.addObject(new PlayerObject(targetPos).setManager(objects));
+        var player = engine.createEntity();
+
+//        objects.addObject(new PlayerObject(targetPos).setManager(objects));
     }
 
     public void render(float delta) {
-        // cam.normalizeUp();
-        // cam.lookAt(100, 100, 0);
         cam.position.set((GameObjectManager.getPlayerObject()).getPosition3());
-        // cam.update();
+
         camViewport.apply();
         mousePosition.set(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
-        objects.setMousePosition(mousePosition);
+
 
         DebugShapeRenderer.setCamera(cam);
 
         mapRenderer.setView(cam);
-        mapRenderer.render(objects, delta);
+        mapRenderer.render(engine, delta);
 
         DebugShapeRenderer.drawAll();
 
@@ -128,8 +118,7 @@ public abstract class World extends InputAdapter {
     }
 
     public void resize(int width, int height) {
-        if (camViewport == null)
-            return;
+        if (camViewport == null) return;
         camViewport.update(width, height);
     }
 
@@ -155,11 +144,9 @@ public abstract class World extends InputAdapter {
     @Override
     public boolean keyDown(int key) {
 
-        if (key == Keys.ESCAPE)
-            Screens.setScreen(Screens.MAIN_MENU_SCREEN);
+        if (key == Keys.ESCAPE) Screens.setScreen(Screens.MAIN_MENU_SCREEN);
 
-        if (key == Keys.F5)
-            Screens.setScreen(Screens.PLAY_SCREEN);
+        if (key == Keys.F5) Screens.setScreen(Screens.PLAY_SCREEN);
         return true;
     }
 

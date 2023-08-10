@@ -18,35 +18,36 @@ import org.checkerframework.checker.units.qual.A;
 
 public class PlayerObject extends LivingObject {
 
-    private Animation<TextureRegion> idle, move, attack, die;
+    private Animation<TextureRegion> idle, move, sprint, attack, die;
 
-	private Rectangle facingBox = new Rectangle();
+    private Rectangle facingBox = new Rectangle();
 
-	private GameObjectManager manager;
+    private GameObjectManager manager;
 
     private Direction lastMove = Direction.RIGHT;
     private boolean isAttacking = false;
+    private boolean isSprinting = false;
 
     public PlayerObject(Vector2 pos) {
-		super("player", pos);
-	}
+        super("player", pos);
+    }
 
-	public GameObject setManager(GameObjectManager manager) {
-		this.manager = manager;
-		return this;
-	}
+    public GameObject setManager(GameObjectManager manager) {
+        this.manager = manager;
+        return this;
+    }
 
-	@Override
-	public void init() {
-		super.init();
-		// TODO: Read from save
-		stats.put("maxhp", 100f);
-		stats.put("maxmp", 100f);
+    @Override
+    public void init() {
+        super.init();
+        // TODO: Read from save
+        stats.put("maxhp", 100f);
+        stats.put("maxmp", 100f);
 
-		stats.put("hp", 75f);
-		stats.put("mp", 75f);
+        stats.put("hp", 75f);
+        stats.put("mp", 75f);
 
-	}
+    }
 
     @Override
     protected void setupAnimations() {
@@ -54,31 +55,39 @@ public class PlayerObject extends LivingObject {
 
         idle = new Animation<>(1, frames[0][0], frames[0][1], frames[1][0], frames[1][1]);
         move = new Animation<>(.1f, frames[3][0], frames[3][1], frames[3][2], frames[3][3]);
+        sprint = new Animation<>(.1f, frames[4][0], frames[4][1], frames[4][2], frames[4][3], frames[4][4], frames[4][5], frames[4][6], frames[4][7]);
+
 
         idle.setPlayMode(Animation.PlayMode.LOOP_RANDOM);
         move.setPlayMode(Animation.PlayMode.LOOP);
+        sprint.setPlayMode(Animation.PlayMode.LOOP);
     }
 
     @Override
-	public void render(SpriteBatch batch, float dt) {
-		box.setPosition(pos);
-		box.y += 7;
-		box.x += 7;
+    public void render(SpriteBatch batch, float dt) {
+        box.setPosition(pos);
+        box.y += 7;
+        box.x += 7;
         processInput(Gdx.input);
-		drawAnimations(batch, dt);
-		move(dt);
-		cone.updateCone();
-		DebugShapeRenderer.drawShape(cone);
-		DebugShapeRenderer.drawRectangle(box);
-	}
+        drawAnimations(batch, dt);
+        move(dt);
+        cone.updateCone();
+        DebugShapeRenderer.drawShape(cone);
+        DebugShapeRenderer.drawRectangle(box);
+    }
 
     @Override
     public void drawAnimations(SpriteBatch batch, float dt) {
-        this.stateTime+=dt;
+        this.stateTime += dt;
 
         Animation<TextureRegion> animation;
-        if(isMovingX || isMovingY){
-            animation = move;
+        if (isMovingX || isMovingY) {
+            if(isSprinting) {
+                animation = sprint;
+            }
+            else {
+                animation = move;
+            }
         } else if (isAttacking) {
             animation = attack;
         } else {
@@ -86,107 +95,108 @@ public class PlayerObject extends LivingObject {
         }
 
         var frame = animation.getKeyFrame(stateTime);
-        if(lastMove == Direction.LEFT && !frame.isFlipX()){
+        if (lastMove == Direction.LEFT && !frame.isFlipX()) {
             frame.flip(true, false);
         }
-        if(lastMove == Direction.RIGHT && frame.isFlipX()){
+        if (lastMove == Direction.RIGHT && frame.isFlipX()) {
             frame.flip(true, false);
         }
 
-        batch.draw(frame,pos.x, pos.y);
+        batch.draw(frame, pos.x, pos.y);
     }
 
     public void processInput(Input in) {
-		Vector2 tmp = new Vector2();
-		if (in.isKeyPressed(Config.keyLeft)) {
-			tmp.x = -1;
-			facing = Direction.LEFT;
-			isMovingX = true;
-			dir.setAngleDeg(0);
+        Vector2 tmp = new Vector2();
+        if (in.isKeyPressed(Config.keyLeft)) {
+            tmp.x = -1;
+            facing = Direction.LEFT;
+            isMovingX = true;
+            dir.setAngleDeg(0);
             lastMove = Direction.LEFT;
-		} else if (in.isKeyPressed(Config.keyRight)) {
-			tmp.x = 1;
-			facing = Direction.RIGHT;
-			isMovingX = true;
-			dir.setAngleDeg(180);
+        } else if (in.isKeyPressed(Config.keyRight)) {
+            tmp.x = 1;
+            facing = Direction.RIGHT;
+            isMovingX = true;
+            dir.setAngleDeg(180);
             lastMove = Direction.RIGHT;
-		} else {
-			tmp.x = 0;
-			isMovingX = false;
-		}
+        } else {
+            tmp.x = 0;
+            isMovingX = false;
+        }
 
-		if (in.isKeyPressed(Config.keyUp)) {
-			tmp.y = 1;
-			facing = Direction.UP;
-			isMovingY = true;
-			dir.setAngleDeg(90);
-		} else if (in.isKeyPressed(Config.keyDown)) {
-			tmp.y = -1;
-			facing = Direction.DOWN;
-			isMovingY = true;
-			dir.setAngleDeg(270);
-		} else {
-			tmp.y = 0;
-			isMovingY = false;
-		}
+        if (in.isKeyPressed(Config.keyUp)) {
+            tmp.y = 1;
+            facing = Direction.UP;
+            isMovingY = true;
+            dir.setAngleDeg(90);
+        } else if (in.isKeyPressed(Config.keyDown)) {
+            tmp.y = -1;
+            facing = Direction.DOWN;
+            isMovingY = true;
+            dir.setAngleDeg(270);
+        } else {
+            tmp.y = 0;
+            isMovingY = false;
+        }
 
-		if (in.isKeyPressed(Keys.SHIFT_LEFT))
-			tmp.scl(2);
+        if (in.isKeyPressed(Keys.SHIFT_LEFT)) {
+            tmp.scl(2);
+            isSprinting = true;
+        }
 
         moveBy(tmp);
 
-		if (in.isKeyJustPressed(Keys.B)) {
+        if (in.isKeyJustPressed(Keys.B)) {
             System.out.println("Player: " + pos.toString());
         }
 
-	}
+    }
 
-	public void moveBy(Vector2 dest) {
-		if (manager == null) {
-			Log.log(LogLevel.CRITICAL, "PlayerObject doesn't know about other Objects!");
-			Gdx.app.exit();
-		}
+    public void moveBy(Vector2 dest) {
+        if (manager == null) {
+            Log.log(LogLevel.CRITICAL, "PlayerObject doesn't know about other Objects!");
+            Gdx.app.exit();
+        }
 
-		Rectangle tmpX = new Rectangle(box);
-		tmpX.x += dest.x;
+        Rectangle tmpX = new Rectangle(box);
+        tmpX.x += dest.x;
 
-		Rectangle tmpY = new Rectangle(box);
-		tmpY.y += dest.y;
+        Rectangle tmpY = new Rectangle(box);
+        tmpY.y += dest.y;
 
-		for (GameObject o : manager.get()) {
-			if (o instanceof PlayerObject || o instanceof TransitionObject)
-				continue;
-			if (tmpX.overlaps(o.box) || tmpX.contains(o.box)) {
-				dest.x = 0;
-			}
-			if (tmpY.overlaps(o.box) || tmpY.contains(o.box)) {
-				dest.y = 0;
-			}
-		}
+        for (GameObject o : manager.get()) {
+            if (o instanceof PlayerObject || o instanceof TransitionObject) continue;
+            if (tmpX.overlaps(o.box) || tmpX.contains(o.box)) {
+                dest.x = 0;
+            }
+            if (tmpY.overlaps(o.box) || tmpY.contains(o.box)) {
+                dest.y = 0;
+            }
+        }
 
-		if (isMovingX) {
-			facingBox = tmpX;
-			facingBox.x += (dest.x < 0 ? -10 : 10);
-		} else if (isMovingY) {
-			facingBox = tmpY;
-			facingBox.y += (dest.y < 0 ? -10 : 10);
-		}
+        if (isMovingX) {
+            facingBox = tmpX;
+            facingBox.x += (dest.x < 0 ? -10 : 10);
+        } else if (isMovingY) {
+            facingBox = tmpY;
+            facingBox.y += (dest.y < 0 ? -10 : 10);
+        }
 
         this.dest = this.pos.add(dest);
-	}
+    }
 
-	public Vector3 getPosition3() {
-		Vector2 tmp1 = pos.cpy();
-		Vector3 tmp2 = new Vector3();
+    public Vector3 getPosition3() {
+        Vector2 tmp1 = pos.cpy();
+        Vector3 tmp2 = new Vector3();
 
-		tmp2.x = tmp1.x + 16;
-		tmp2.y = tmp1.y + 34;
+        tmp2.x = tmp1.x + 16;
+        tmp2.y = tmp1.y + 34;
 
-		return tmp2;
-	}
+        return tmp2;
+    }
 
-	public Direction getDirection() {
-		return this.facing;
-	}
+    public Direction getDirection() {
+        return this.facing;
+    }
 
 }
