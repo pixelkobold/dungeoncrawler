@@ -3,17 +3,14 @@ package com.pixelkobold.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.config.Config;
 
@@ -21,7 +18,7 @@ public class MainMenuScreen implements Screen {
     private Sprite bg;
 
     private Stage stage;
-    private SpriteBatch batch = new SpriteBatch();
+    private final SpriteBatch batch = new SpriteBatch();
 
     @Override
     public void show() {
@@ -38,7 +35,7 @@ public class MainMenuScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         TextButton buttonPlay = new TextButton("Start Game", skin);
-        buttonPlay.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
+        buttonPlay.setPosition(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
         buttonPlay.setSize(100, 20);
 
         buttonPlay.addListener(new ClickListener() {
@@ -72,7 +69,7 @@ public class MainMenuScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
         if (bg != null) {
-            batch.draw(bg,0 ,0);
+            batch.draw(bg, 0, 0);
         }
         batch.end();
         stage.act(delta);

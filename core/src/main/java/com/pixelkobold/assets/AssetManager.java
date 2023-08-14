@@ -1,20 +1,18 @@
 package com.pixelkobold.assets;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.badlogic.gdx.utils.Array;
-
 import com.pixelkobold.assets.Asset.AssetType;
 import com.pixelkobold.log.Log;
 import com.pixelkobold.log.LogLevel;
 
+import java.util.HashMap;
+
 public class AssetManager {
 
 
-    private static HashMap<String, Asset> assets = new HashMap<>();
+    private static final HashMap<String, Asset> assets = new HashMap<>();
 
-    private static Array<AssetDescriptor> descriptors = new Array<>();
+    private static final Array<AssetDescriptor> descriptors = new Array<>();
 
     public static void loadAll() {
         assets.clear();

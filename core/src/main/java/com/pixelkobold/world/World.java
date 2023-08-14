@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -21,13 +22,14 @@ import com.pixelkobold.assets.AssetDescriptor;
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.entity.components.*;
 import com.pixelkobold.entity.system.AnimationSystem;
+import com.pixelkobold.entity.system.PlayerMovementSystem;
 import com.pixelkobold.map.MapRenderer;
 import com.pixelkobold.renderers.DebugShapeRenderer;
 import com.pixelkobold.screens.Screens;
 
 import static com.github.czyzby.kiwi.util.tuple.immutable.Pair.of;
 
-public abstract class World extends InputAdapter {
+public class World extends InputAdapter {
 
     protected SpriteBatch batch;
     public static OrthographicCamera cam;
@@ -45,11 +47,16 @@ public abstract class World extends InputAdapter {
 
     private Engine engine;
 
-    public World init() {
+    public World(String mapName) {
+        this.mapName = mapName;
+    }
+
+    public void init() {
         batch = new SpriteBatch();
 
         engine = new PooledEngine();
         engine.addSystem(new AnimationSystem(batch));
+        engine.addSystem(new PlayerMovementSystem());
 
 
         cam = new OrthographicCamera();
@@ -61,8 +68,6 @@ public abstract class World extends InputAdapter {
 
         addObjects();
         addTransitionObjects();
-
-        return this;
     }
 
     private void addTransitionObjects() {
@@ -91,10 +96,11 @@ public abstract class World extends InputAdapter {
             .add(engine.createComponent(MovementComponent.class))
             .add(engine.createComponent(AnimationComponent.class).setFrames(playerFrames)
                 .setIdle(of(0, 0), of(0, 1), of(1, 0), of(1, 1))
-                .setMoving(of(3, 0), of(3, 1), of(3, 2), of(3, 3))
-                .setRunning(of(4, 0), of(4, 1), of(4, 2), of(4, 3), of(4, 4), of(4, 5), of(4, 6), of(4, 7))
+                .setMoving(of(2, 0), of(2, 1), of(2, 2), of(2, 3))
+                .setRunning(of(3, 0), of(3, 1), of(3, 2), of(3, 3), of(3, 4), of(3, 5), of(3, 6), of(3, 7))
             )
-            .add(engine.createComponent(PlayerComponent.class));
+            .add(engine.createComponent(PlayerComponent.class))
+            .add(engine.createComponent(BoundingBoxComponent.class).setBox(new Rectangle(0, 0, 32, 32)));
         engine.addEntity(player);
 
 //        objects.addObject(new PlayerObject(targetPos).setManager(objects));
@@ -154,7 +160,6 @@ public abstract class World extends InputAdapter {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
         return true;
     }
 
@@ -165,11 +170,6 @@ public abstract class World extends InputAdapter {
 
         if (key == Keys.F5) Screens.setScreen(Screens.PLAY_SCREEN);
         return true;
-    }
-
-    public World setPos(Vector2 targetPos) {
-        this.targetPos = targetPos;
-        return this;
     }
 
 }

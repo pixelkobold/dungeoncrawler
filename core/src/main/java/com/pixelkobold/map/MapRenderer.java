@@ -9,31 +9,30 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 public class MapRenderer extends OrthogonalTiledMapRenderer {
 
-	public MapRenderer(TiledMap map){
-		super(map);
-	}
+    public MapRenderer(TiledMap map) {
+        super(map);
+    }
 
     public void render(Engine objects, float dt) {
-		// super.render();
-		beginRender();
-		for(int i = 0; i < map.getLayers().getCount(); i++){
-			MapLayer layer = map.getLayers().get(i);
-			if(layer.isVisible()){
-				if(layer.getName().equals("gameObjectLayer")){
+        beginRender();
+        for (int i = 0; i < map.getLayers().getCount(); i++) {
+            MapLayer layer = map.getLayers().get(i);
+            if (layer.isVisible()) {
+                if (layer.getName().equals("gameObjectLayer")) {
                     objects.update(dt);
-					continue;
-				}
-				if(layer instanceof TiledMapTileLayer){
-					renderTileLayer((TiledMapTileLayer) layer);
-				}
-				if(layer instanceof TiledMapImageLayer){
-					renderImageLayer((TiledMapImageLayer) layer);
-				}else{
-					renderObjects(layer);
-				}
-			}
-		}
-		endRender();
+                    continue;
+                }
+                if (layer instanceof TiledMapTileLayer) {
+                    renderTileLayer((TiledMapTileLayer) layer);
+                }
+                if (layer instanceof TiledMapImageLayer) {
+                    renderImageLayer((TiledMapImageLayer) layer);
+                } else {
+                    renderObjects(layer);
+                }
+            }
+        }
+        endRender();
 
-	}
+    }
 }

@@ -29,7 +29,6 @@ public class AnimationSystem extends IteratingSystem {
         var direction = directionMapper.get(entity);
 
         state.updateTime(deltaTime);
-
         var animation = switch (state.getState()) {
             case IDLE -> animations.getIdle();
             case WALK -> animations.getMoving();
