@@ -1,6 +1,8 @@
 package com.pixelkobold.world;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Family;
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
@@ -11,20 +13,19 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
 import com.pixelkobold.assets.Asset.AssetType;
 import com.pixelkobold.assets.AssetDescriptor;
 import com.pixelkobold.assets.AssetManager;
+import com.pixelkobold.entity.components.*;
+import com.pixelkobold.entity.system.AnimationSystem;
 import com.pixelkobold.map.MapRenderer;
-import com.pixelkobold.objects.GameObjectManager;
-import com.pixelkobold.objects.MapCollisionObject;
-import com.pixelkobold.objects.PlayerObject;
-import com.pixelkobold.objects.TransitionObject;
 import com.pixelkobold.renderers.DebugShapeRenderer;
 import com.pixelkobold.screens.Screens;
+
+import static com.github.czyzby.kiwi.util.tuple.immutable.Pair.of;
 
 public abstract class World extends InputAdapter {
 
@@ -47,7 +48,9 @@ public abstract class World extends InputAdapter {
     public World init() {
         batch = new SpriteBatch();
 
-        engine = new Engine();
+        engine = new PooledEngine();
+        engine.addSystem(new AnimationSystem(batch));
+
 
         cam = new OrthographicCamera();
         camViewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
@@ -79,13 +82,27 @@ public abstract class World extends InputAdapter {
             targetPos = new Vector2(x, y);
         }
 
-        var player = engine.createEntity();
+        var playerFrames = AssetManager.get("player").asSprite().split(32, 32);
+
+        var player = engine.createEntity()
+            .add(engine.createComponent(PositionComponent.class).setPosition(targetPos))
+            .add(engine.createComponent(DirectionComponent.class))
+            .add(engine.createComponent(StateComponent.class))
+            .add(engine.createComponent(MovementComponent.class))
+            .add(engine.createComponent(AnimationComponent.class).setFrames(playerFrames)
+                .setIdle(of(0, 0), of(0, 1), of(1, 0), of(1, 1))
+                .setMoving(of(3, 0), of(3, 1), of(3, 2), of(3, 3))
+                .setRunning(of(4, 0), of(4, 1), of(4, 2), of(4, 3), of(4, 4), of(4, 5), of(4, 6), of(4, 7))
+            )
+            .add(engine.createComponent(PlayerComponent.class));
+        engine.addEntity(player);
 
 //        objects.addObject(new PlayerObject(targetPos).setManager(objects));
     }
 
     public void render(float delta) {
-        cam.position.set((GameObjectManager.getPlayerObject()).getPosition3());
+        var player = engine.getEntitiesFor(Family.all(PlayerComponent.class).get()).first();
+        cam.position.set(new Vector3(player.getComponent(PositionComponent.class).getPosition(), 0));
 
         camViewport.apply();
         mousePosition.set(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
@@ -93,9 +110,10 @@ public abstract class World extends InputAdapter {
 
         DebugShapeRenderer.setCamera(cam);
 
+        batch.begin();
         mapRenderer.setView(cam);
         mapRenderer.render(engine, delta);
-
+        batch.end();
         DebugShapeRenderer.drawAll();
 
     }
@@ -131,7 +149,6 @@ public abstract class World extends InputAdapter {
         this.batch = null;
         this.mapRenderer = null;
         this.normalProjection = null;
-        this.objects = null;
         System.gc();
     }
 

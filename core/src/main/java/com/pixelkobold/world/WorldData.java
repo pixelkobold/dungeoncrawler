@@ -1,12 +1,8 @@
 package com.pixelkobold.world;
 
-import java.util.ArrayList;
-
 import com.pixelkobold.objects.GameObjectData;
-import com.pixelkobold.objects.GameObjectData.GameObjectType;
-import com.pixelkobold.objects.IInteractable;
-import com.pixelkobold.objects.LivingObject;
-import com.pixelkobold.objects.StaticObject;
+
+import java.util.ArrayList;
 
 public class WorldData {
 
@@ -39,7 +35,7 @@ public class WorldData {
 			public void addObjects() {
 				super.addObjects();
 				for (GameObjectData data : gameObjects) {
-					this.objects.addObject(data.toGameObject());
+//					this.objects.addObject(data.toGameObject());
 				}
 
 			}
@@ -59,16 +55,16 @@ public class WorldData {
 		data.mapName = w.mapName;
 
 //		ArrayList<GameObjectData> list = new ArrayList<>();
-		w.objects.get().forEach((o) -> {
-			if (!(o instanceof StaticObject) || o instanceof IInteractable) {
-				GameObjectData gameObjectData = new GameObjectData();
-				gameObjectData.name = o.getName();
-				gameObjectData.pos = o.getPos();
-				gameObjectData.type = (o instanceof LivingObject ? GameObjectType.LIVING : o instanceof StaticObject ? GameObjectType.STATIC : GameObjectType.BASE);
-				gameObjectData.stats =( (LivingObject) o).getStats();
-				data.gameObjects.add(gameObjectData);
-			}
-		});
+//		w.objects.get().forEach((o) -> {
+//			if (!(o instanceof StaticObject) || o instanceof IInteractable) {
+//				GameObjectData gameObjectData = new GameObjectData();
+//				gameObjectData.name = o.getName();
+//				gameObjectData.pos = o.getPos();
+//				gameObjectData.type = (o instanceof LivingObject ? GameObjectType.LIVING : o instanceof StaticObject ? GameObjectType.STATIC : GameObjectType.BASE);
+//				gameObjectData.stats =( (LivingObject) o).getStats();
+//				data.gameObjects.add(gameObjectData);
+//			}
+//		});
 
 		return data;
 	}

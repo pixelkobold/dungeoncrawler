@@ -1,10 +1,6 @@
 package com.pixelkobold.world;
 
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.math.Vector2;
-
 import com.pixelkobold.objects.NPC;
-import com.pixelkobold.objects.PlayerObject;
 
 public class TestWorld extends World {
 
@@ -19,7 +15,7 @@ public class TestWorld extends World {
 
 	@Override
 	public void addObjects() {
-		objects.addObject(new PlayerObject(new Vector2(1500, 600)).setManager(objects));
+//		objects.addObject(new PlayerObject(new Vector2(1500, 600)).setManager(objects));
 	}
 
 }

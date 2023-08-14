@@ -1,7 +1,6 @@
-2023/08/11 07:25:27[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=player, path=img/player.png]
-2023/08/11 07:25:27[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=MainBack, path=img/MainBack.png]
-2023/08/11 07:25:27[DEBUG]Adding world: test_map1
+2023/08/14 14:23:56[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=player, path=img/player.png]
+2023/08/14 14:23:56[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=MainBack, path=img/MainBack.png]
+2023/08/14 14:23:56[DEBUG]Adding world: test_map1
 WorldData [mapName=test_map1, gameObjects=[]]
-2023/08/11 07:25:29[DEBUG]Initing world: test_map1
-2023/08/11 07:25:29[DEBUG]Loading on-demand asset: AssetDescriptor[type=MAP, name=test_map1, path=maps/test_map1.tmx]
-2023/08/11 07:25:29[DEBUG]Initing Object: player
+2023/08/14 14:23:57[DEBUG]Initing world: test_map1
+2023/08/14 14:23:57[DEBUG]Loading on-demand asset: AssetDescriptor[type=MAP, name=test_map1, path=maps/test_map1.tmx]
