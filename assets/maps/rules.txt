@@ -1,3 +1,4 @@
 rules/cleanup.tmx
 rules/walls.tmx
 rules/torches.tmx
+rules/caves.tmx

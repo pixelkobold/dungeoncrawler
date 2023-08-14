@@ -3,12 +3,14 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "test_map1.tmx",
+    "activeFile": "rules/walls.tmx",
     "automapping.whileDrawing": false,
     "expandedProjectPaths": [
-        "rules",
-        "."
+        ".",
+        "base",
+        "rules"
     ],
+    "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
     "fileStates": {
         "": {
             "scaleInDock": 1
@@ -16,12 +18,44 @@
         ":/automap-tiles.tsx": {
             "scaleInDock": 1
         },
-        "blank_map.tmx": {
+        "base/base_001.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 159.5,
+                "y": 159.5
+            }
+        },
+        "base/base_002.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 159.5,
+                "y": 159.5
+            }
+        },
+        "base/base_003.tmx": {
             "scale": 2,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 145,
-                "y": 117.5
+                "x": 159.5,
+                "y": 159.5
+            }
+        },
+        "base/base_004.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159,
+                "y": 159
+            }
+        },
+        "blank_map.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 45.333333333333314,
+                "y": 169.33333333333337
             }
         },
         "corridor1.tmx": {
@@ -32,31 +66,39 @@
                 "y": 80.14217361585783
             }
         },
+        "rules/caves.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 380,
+                "y": 322
+            }
+        },
         "rules/cleanup.tmx": {
-            "scale": 3,
+            "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 109.66666666666669,
-                "y": 103.33333333333331
+                "x": 320,
+                "y": 320
             }
         },
         "rules/torches.tmx": {
-            "scale": 4,
+            "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 186.125,
-                "y": 185.5
+                "x": 160,
+                "y": 159.99999999999997
             }
         },
         "rules/ts_dungeon.tsx": {
             "scaleInDock": 1
         },
         "rules/walls.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 6,
+            "scale": 2,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 201.33333333333326,
-                "y": 289.33333333333326
+                "x": 144,
+                "y": 167.5
             }
         },
         "spr_torch.tsx": {
@@ -78,15 +120,15 @@
                 6
             ],
             "scale": 1.5,
-            "selectedLayer": 5,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 111,
-                "y": 173.33333333333331
+                "x": 181.33333333333331,
+                "y": 159.99999999999997
             }
         },
         "ts_dungeon.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 4
+            "scaleInDock": 2,
+            "scaleInEditor": 3
         },
         "walls.tmx": {
             "scale": 3,
@@ -99,26 +141,36 @@
     },
     "last.exportedFilePath": "/home/killermenpl/dev/dungeon_crawler/tiled",
     "last.externalTilesetPath": "/home/killermenpl/dev/dungeon_crawler/tiled",
-    "map.height": 40,
+    "map.height": 20,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 40,
+    "map.width": 20,
     "openFiles": [
         "rules/walls.tmx",
         "ts_dungeon.tsx",
-        "test_map1.tmx"
+        "test_map1.tmx",
+        "base/base_001.tmx",
+        "base/base_003.tmx",
+        "base/base_002.tmx",
+        "base/base_004.tmx",
+        "rules/torches.tmx",
+        "rules/cleanup.tmx"
     ],
     "project": "dungeon_crawler.tiled-project",
     "property.type": "float",
     "recentFiles": [
-        "test_map1.tmx",
-        "rules/walls.tmx",
-        "ts_dungeon.tsx",
-        "testIsland.tmx",
         "rules/cleanup.tmx",
         "rules/torches.tmx",
+        "base/base_004.tmx",
+        "base/base_002.tmx",
+        "base/base_003.tmx",
+        "base/base_001.tmx",
+        "test_map1.tmx",
+        "ts_dungeon.tsx",
+        "rules/walls.tmx",
+        "testIsland.tmx",
         "walls.tmx",
         "corridor1.tmx"
     ]
