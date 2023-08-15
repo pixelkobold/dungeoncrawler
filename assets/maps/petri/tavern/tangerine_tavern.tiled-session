@@ -3,31 +3,72 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "rules/floors.tmx",
+    "activeFile": "rules/objects.tmx",
     "expandedProjectPaths": [
         "rules",
         "."
     ],
     "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
     "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
         "TangerineTavernPNG_PetricakeGames.tsx": {
             "scaleInDock": 3,
             "scaleInEditor": 4
+        },
+        "map_tangerine_001.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 157.5,
+                "y": 149.5
+            }
+        },
+        "regular/TangerineTavernPNG_PetricakeGames.tsx": {
+            "scaleInDock": 1
+        },
+        "regular/map_tangerine_001.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.21872863978126,
+                "y": -50.85440874914559
+            }
+        },
+        "rules/background_cleanup.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 34,
+                "y": 34
+            }
         },
         "rules/floors.tmx": {
             "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 218,
-                "y": 176.5
+                "x": 253,
+                "y": 38.5
+            }
+        },
+        "rules/objects.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 167.99999999999997,
+                "y": 154.66666666666663
             }
         },
         "rules/walls.tmx": {
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 75.33333333333331,
-                "y": -17.33333333333337
+                "x": 512,
+                "y": 159.99999999999997
             }
         },
         "rules/walls_pattern.tmx": {
@@ -42,38 +83,47 @@
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 449.66666666666663,
-                "y": 97.66666666666669
+                "x": 439.99999999999994,
+                "y": 159.99999999999997
             }
         },
         "test.tmx": {
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 173.25,
-                "y": 150
+                "x": 112,
+                "y": 134.66666666666669
             }
         }
     },
+    "last.externalTilesetPath": "/home/luna/MEGAsync/programming/pixel kobold/tiled/petri/tavern",
+    "map.height": 5,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 50,
+    "map.width": 5,
     "openFiles": [
         "TangerineTavernPNG_PetricakeGames.tsx",
         "test.tmx",
         "rules/walls_pattern.tmx",
         "rules/walls.tmx",
         "rules/walls_shadows.tmx",
-        "rules/floors.tmx"
+        "rules/floors.tmx",
+        "map_tangerine_001.tmx",
+        "rules/background_cleanup.tmx",
+        "rules/objects.tmx"
     ],
     "project": "tangerine_tavern.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
         "TangerineTavernPNG_PetricakeGames.tsx",
         "test.tmx",
         "rules/walls_pattern.tmx",
         "rules/walls.tmx",
         "rules/walls_shadows.tmx",
-        "rules/floors.tmx"
+        "rules/floors.tmx",
+        "rules/objects.tmx",
+        "rules/background_cleanup.tmx",
+        "map_tangerine_001.tmx"
     ]
 }

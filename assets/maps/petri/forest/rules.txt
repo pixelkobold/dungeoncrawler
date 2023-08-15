@@ -1,7 +1,5 @@
 rules/objects.tmx
 rules/walls.tmx
-rules/floors.tmx
-rules/walls_shadows.tmx
 rules/walls_pattern.tmx
+rules/floors.tmx
 rules/background_cleanup.tmx
-
