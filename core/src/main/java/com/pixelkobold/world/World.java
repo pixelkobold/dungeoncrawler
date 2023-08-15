@@ -1,5 +1,8 @@
 package com.pixelkobold.world;
 
+import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Family;
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputAdapter;
@@ -9,33 +12,30 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
 import com.pixelkobold.assets.Asset.AssetType;
 import com.pixelkobold.assets.AssetDescriptor;
 import com.pixelkobold.assets.AssetManager;
+import com.pixelkobold.entity.components.*;
+import com.pixelkobold.entity.system.AnimationSystem;
+import com.pixelkobold.entity.system.PlayerMovementSystem;
 import com.pixelkobold.map.MapRenderer;
-import com.pixelkobold.objects.GameObjectManager;
-import com.pixelkobold.objects.MapCollisionObject;
-import com.pixelkobold.objects.PlayerObject;
-import com.pixelkobold.objects.TransitionObject;
 import com.pixelkobold.renderers.DebugShapeRenderer;
 import com.pixelkobold.screens.Screens;
 
-public abstract class World extends InputAdapter {
+import static com.github.czyzby.kiwi.util.tuple.immutable.Pair.of;
 
-    public GameObjectManager objects = new GameObjectManager();
+public class World extends InputAdapter {
 
     protected SpriteBatch batch;
     public static OrthographicCamera cam;
     public static Viewport camViewport;
 
     public MapRenderer mapRenderer;
-
-    private Array<MapCollisionObject> collisions;
 
     public static Vector2 mousePosition = new Vector2();
 
@@ -45,30 +45,29 @@ public abstract class World extends InputAdapter {
 
     private Vector2 targetPos;
 
-    public World init() {
-        if (objects == null)
-            objects = new GameObjectManager();
+    private Engine engine;
 
+    public World(String mapName) {
+        this.mapName = mapName;
+    }
 
-        objects.drop();
-
+    public void init() {
         batch = new SpriteBatch();
+
+        engine = new PooledEngine();
+        engine.addSystem(new AnimationSystem(batch));
+        engine.addSystem(new PlayerMovementSystem());
+
 
         cam = new OrthographicCamera();
         camViewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), cam);
         cam.zoom = .5f;
-        AssetManager.load(
-            new AssetDescriptor(AssetType.MAP, this.mapName, "maps/" + this.mapName + ".tmx"));
+        AssetManager.load(new AssetDescriptor(AssetType.MAP, this.mapName, "maps/" + this.mapName + ".tmx"));
 
         mapRenderer = new MapRenderer(AssetManager.get(this.mapName).asMap());
 
         addObjects();
-        addCollisionObjects();
         addTransitionObjects();
-        objects.initAll();
-
-
-        return this;
     }
 
     private void addTransitionObjects() {
@@ -76,7 +75,6 @@ public abstract class World extends InputAdapter {
         map.getLayers().get("transitions").getObjects().forEach((MapObject object) -> {
             MapProperties props = object.getProperties();
 
-            objects.addObject(new TransitionObject(props));
         });
     }
 
@@ -89,23 +87,39 @@ public abstract class World extends InputAdapter {
             targetPos = new Vector2(x, y);
         }
 
-        objects.addObject(new PlayerObject(targetPos).setManager(objects));
+        var playerFrames = AssetManager.get("player").asSprite().split(32, 32);
+
+        var player = engine.createEntity()
+            .add(engine.createComponent(PositionComponent.class).setPosition(targetPos))
+            .add(engine.createComponent(DirectionComponent.class))
+            .add(engine.createComponent(StateComponent.class))
+            .add(engine.createComponent(MovementComponent.class))
+            .add(engine.createComponent(AnimationComponent.class).setFrames(playerFrames)
+                .setIdle(of(0, 0), of(0, 1), of(1, 0), of(1, 1))
+                .setMoving(of(2, 0), of(2, 1), of(2, 2), of(2, 3))
+                .setRunning(of(3, 0), of(3, 1), of(3, 2), of(3, 3), of(3, 4), of(3, 5), of(3, 6), of(3, 7))
+            )
+            .add(engine.createComponent(PlayerComponent.class))
+            .add(engine.createComponent(BoundingBoxComponent.class).setBox(new Rectangle(0, 0, 32, 32)));
+        engine.addEntity(player);
+
+//        objects.addObject(new PlayerObject(targetPos).setManager(objects));
     }
 
     public void render(float delta) {
-        // cam.normalizeUp();
-        // cam.lookAt(100, 100, 0);
-        cam.position.set((GameObjectManager.getPlayerObject()).getPosition3());
-        // cam.update();
+        var player = engine.getEntitiesFor(Family.all(PlayerComponent.class).get()).first();
+        cam.position.set(new Vector3(player.getComponent(PositionComponent.class).getPosition(), 0));
+
         camViewport.apply();
         mousePosition.set(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
-        objects.setMousePosition(mousePosition);
+
 
         DebugShapeRenderer.setCamera(cam);
 
+        batch.begin();
         mapRenderer.setView(cam);
-        mapRenderer.render(objects, delta);
-
+        mapRenderer.render(engine, delta);
+        batch.end();
         DebugShapeRenderer.drawAll();
 
     }
@@ -128,8 +142,7 @@ public abstract class World extends InputAdapter {
     }
 
     public void resize(int width, int height) {
-        if (camViewport == null)
-            return;
+        if (camViewport == null) return;
         camViewport.update(width, height);
     }
 
@@ -142,30 +155,21 @@ public abstract class World extends InputAdapter {
         this.batch = null;
         this.mapRenderer = null;
         this.normalProjection = null;
-        this.objects = null;
         System.gc();
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
         return true;
     }
 
     @Override
     public boolean keyDown(int key) {
 
-        if (key == Keys.ESCAPE)
-            Screens.setScreen(Screens.MAIN_MENU_SCREEN);
+        if (key == Keys.ESCAPE) Screens.setScreen(Screens.MAIN_MENU_SCREEN);
 
-        if (key == Keys.F5)
-            Screens.setScreen(Screens.PLAY_SCREEN);
+        if (key == Keys.F5) Screens.setScreen(Screens.PLAY_SCREEN);
         return true;
-    }
-
-    public World setPos(Vector2 targetPos) {
-        this.targetPos = targetPos;
-        return this;
     }
 
 }
