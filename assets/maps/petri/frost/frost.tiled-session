@@ -1,0 +1,96 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "rules/floors.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "rules"
+    ],
+    "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
+    "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "FrostChill_tsx.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 3
+        },
+        "rules/columns.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 2.671875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 160.18713450292395,
+                "y": 160.18713450292395
+            }
+        },
+        "rules/floors.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 617,
+                "y": 43
+            }
+        },
+        "rules/floors_pattern.tmx": {
+            "scale": 2.671875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 230.54970760233917,
+                "y": 218.5730994152047
+            }
+        },
+        "rules/objects.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 2.671875,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 230.54970760233917,
+                "y": 218.5730994152047
+            }
+        },
+        "rules/walls.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 481,
+                "y": 212.33333333333331
+            }
+        },
+        "test.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 447.25,
+                "y": 199.25
+            }
+        }
+    },
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 20,
+    "openFiles": [
+        "FrostChill_tsx.tsx",
+        "rules/walls.tmx",
+        "test.tmx",
+        "rules/floors_pattern.tmx",
+        "rules/objects.tmx",
+        "rules/floors.tmx"
+    ],
+    "project": "frost.tiled-project",
+    "recentFiles": [
+        "FrostChill_tsx.tsx",
+        "rules/walls.tmx",
+        "test.tmx",
+        "rules/floors_pattern.tmx",
+        "rules/objects.tmx",
+        "rules/floors.tmx"
+    ]
+}
