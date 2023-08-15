@@ -1,0 +1,2 @@
+2023/08/14 14:55:01[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=player, path=img/player.png]
+2023/08/14 14:55:01[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=MainBack, path=img/MainBack.png]
