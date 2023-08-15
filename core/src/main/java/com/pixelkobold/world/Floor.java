@@ -1,18 +1,21 @@
 package com.pixelkobold.world;
 
+import com.badlogic.gdx.utils.ArrayMap;
 import lombok.Data;
 
-import java.util.ArrayList;
 
 @Data
 public class Floor {
 
-    private ArrayList<Room> rooms; // TODO: ArrayMap from libgdx instead of arraylist
-    // or Array from libgdx zamiast arraylisty
+    private ArrayMap<String, Room> rooms;
 
     public Room getRoomByName(String name) {
-        // TODO
-        return null;
+        return rooms.get(name);
+    }
+
+    public void addRoom(Room room) {
+        // TODO: check if room exists
+        rooms.put(room.getMapName(), room);
     }
 
 }
