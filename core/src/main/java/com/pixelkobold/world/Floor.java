@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Floor {
 
-    private ArrayMap<String, Room> rooms;
+    private ArrayMap<String, Room> rooms = new ArrayMap<>();
 
     public Room getRoomByName(String name) {
         return rooms.get(name);
