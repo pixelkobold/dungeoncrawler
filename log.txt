@@ -1,4 +1,3 @@
-2023/08/15 10:34:12[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=player, path=img/player.png]
-2023/08/15 10:34:12[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=MainBack, path=img/MainBack.png]
-2023/08/15 10:34:14[DEBUG]Initing world: test_map1
-2023/08/15 10:34:14[DEBUG]Loading on-demand asset: AssetDescriptor[type=MAP, name=test_map1, path=maps/test_map1.tmx]
+2023/08/15 19:50:27[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=player, path=img/player.png]
+2023/08/15 19:50:27[INFO]Adding Asset to load. Asset: AssetDescriptor[type=SPRITE, name=MainBack, path=img/MainBack.png]
+2023/08/15 19:50:27[DEBUG]Floor(rooms={map_forest_001.tmx=Room(mapName=map_forest_001.tmx, nextRoom=null, previousRoom=map_forest_003.tmx, leftSideRoom=null, rightSideRoom=null), map_forest_002.tmx=Room(mapName=map_forest_002.tmx, nextRoom=map_forest_003.tmx, previousRoom=map_forest_001.tmx, leftSideRoom=null, rightSideRoom=null), map_forest_003.tmx=Room(mapName=map_forest_003.tmx, nextRoom=null, previousRoom=map_forest_001.tmx, leftSideRoom=null, rightSideRoom=null)})
