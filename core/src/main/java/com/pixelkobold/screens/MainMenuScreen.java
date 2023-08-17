@@ -13,7 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.config.Config;
-import com.pixelkobold.world.Worlds;
 
 public class MainMenuScreen implements Screen {
     private Sprite bg;
@@ -28,9 +27,6 @@ public class MainMenuScreen implements Screen {
     }
 
     public void setupGUI() {
-        // TODO: delete this line
-//        Worlds.generateFloor(3);
-
         stage = new Stage();
 
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));

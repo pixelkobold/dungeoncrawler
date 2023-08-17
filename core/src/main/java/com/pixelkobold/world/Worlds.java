@@ -1,10 +1,6 @@
 package com.pixelkobold.world;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.stream.Stream;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -40,12 +36,15 @@ public class Worlds {
     }
 
 
-    private static Array<String> getMapsArray(String path) {
+    private static Array<String> getMaps(String path) {
         FileHandle dir = Gdx.files.internal(path);
-        Object[] files = Arrays.stream(dir.readString().split("\n")).filter(file -> file.endsWith("tmx")).toArray();
+        String[] files = dir.readString().split("\n");
         Array<String> maps = new Array<>();
 
         for (Object file : files) {
+            if (!file.toString().endsWith("tmx")) {
+                continue;
+            }
             maps.add(file.toString());
         }
 
@@ -56,9 +55,9 @@ public class Worlds {
         Floor floor = new Floor();
 
         // TODO: add variable to choose maps from different levels instead of only 'forest'
-        Array<String> maps = getMapsArray("maps/petri/forest/regular");
-        Array<String> entranceMaps = getMapsArray("maps/petri/forest/entrance");
-        Array<String> bossMaps = getMapsArray("maps/petri/forest/boss");
+        Array<String> maps = getMaps("maps/petri/forest/regular");
+        Array<String> entranceMaps = getMaps("maps/petri/forest/entrance");
+        Array<String> bossMaps = getMaps("maps/petri/forest/boss");
 
         String entrance = entranceMaps.random();
         String boss = bossMaps.random();
