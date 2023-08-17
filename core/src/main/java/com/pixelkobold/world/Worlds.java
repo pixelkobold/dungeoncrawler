@@ -44,32 +44,36 @@ public class Worlds {
 
     }
 
-    public static World getRandomWorld(WorldType type) {
 
-        // TODO: create functionality for finding a random world of a certain type
-
-        return null;
-    }
-
-    public static Floor generateFloor(Integer roomsAmount) {
-        Floor floor = new Floor();
-
-        // TODO: fix it
-        // TODO: merge with new maps structure
-        Object[] files = Arrays.stream(Gdx.files.internal("maps/petri/").readString().split("\n")).filter(file -> file.endsWith("tmx")).toArray();
+    private static Array<String> getMapsArray(String path) {
+        FileHandle dir = Gdx.files.internal(path);
+        Object[] files = Arrays.stream(dir.readString().split("\n")).filter(file -> file.endsWith("tmx")).toArray();
         Array<String> maps = new Array<>();
 
         for (Object file : files) {
             maps.add(file.toString());
         }
 
-        // TODO: choose maps randomly instead of hardcoding indexes
-        String entrance = maps.get(0);
-        String boss = maps.get(0);
+        return maps;
+    }
+
+    public static Floor generateFloor(Integer roomsAmount) {
+        Floor floor = new Floor();
+
+        // TODO: add variable to choose maps from different levels instead of only 'forest'
+        Array<String> maps = getMapsArray("maps/petri/forest/regular");
+        Array<String> entranceMaps = getMapsArray("maps/petri/forest/entrance");
+        Array<String> bossMaps = getMapsArray("maps/petri/forest/boss");
+
+        String entrance = entranceMaps.random();
+        String boss = bossMaps.random();
         Array<String> regulars = new Array<>();
 
         for (int i = 0; i < roomsAmount; i++) {
-            regulars.add(maps.get(i));
+            String randomMap = maps.random();
+            regulars.add(randomMap);
+            maps.removeValue(randomMap, false); // to avoid repeating maps, might delete later
+            // TODO: will cause an index out of bounds if we choose a room number bigger than the amount of maps we currently have
         }
 
         // TODO: read properties of maps and add side rooms
@@ -79,10 +83,10 @@ public class Worlds {
 
         for (int i = 0; i < roomsAmount; i++) {
             if (i == 0) {
-                Room room = new Room(regulars.get(i), null, entrance, null, null);
+                Room room = new Room(regulars.get(i), regulars.get(i + 1), entrance, null, null);
                 floor.addRoom(room);
             } else if (i == roomsAmount - 1) {
-                Room room = new Room(regulars.get(i), boss, null, null, null);
+                Room room = new Room(regulars.get(i), boss, regulars.get(i - 1), null, null);
                 floor.addRoom(room);
             } else {
                 Room room = new Room(regulars.get(i), regulars.get(i + 1), regulars.get(i - 1), null, null);

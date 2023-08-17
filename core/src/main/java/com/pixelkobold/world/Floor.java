@@ -14,7 +14,6 @@ public class Floor {
     }
 
     public void addRoom(Room room) {
-        // TODO: check if room exists
         rooms.put(room.getMapName(), room);
     }
 

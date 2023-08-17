@@ -28,9 +28,6 @@ public class MainMenuScreen implements Screen {
     }
 
     public void setupGUI() {
-        // TODO: delete this line
-//        Worlds.generateFloor(3);
-
         stage = new Stage();
 
         Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
