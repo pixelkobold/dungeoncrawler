@@ -16,11 +16,6 @@ import com.pixelkobold.log.LogLevel;
 
 public class Worlds {
 
-    // TODO: add this property to each World
-    public enum WorldType {
-        ENTRANCE, BOSS, REGULAR
-    }
-
     public static HashMap<String, World> worldMap = new HashMap<>();
 
     public static World get(String worldName) {
