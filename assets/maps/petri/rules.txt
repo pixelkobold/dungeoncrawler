@@ -1,0 +1,4 @@
+rules/objects.tmx
+rules/walls.tmx
+rules/walls_pattern.tmx
+rules/floors.tmx

@@ -70,6 +70,14 @@ public class World extends InputAdapter {
         addTransitionObjects();
     }
 
+    public MapProperties getMapProperties() {
+        TiledMap map = AssetManager.get(mapName).asMap();
+        MapProperties props = map.getProperties();
+
+        return props;
+    }
+
+
     private void addTransitionObjects() {
         TiledMap map = AssetManager.get(mapName).asMap();
         map.getLayers().get("transitions").getObjects().forEach((MapObject object) -> {
