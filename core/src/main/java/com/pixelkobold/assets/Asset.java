@@ -18,43 +18,28 @@ public class Asset {
 		SPRITE, MUSIC, SOUND, MAP, SKIN, ATLAS;
 	}
 
-	private Object object;
+	private final Object object;
 
 	public Asset(AssetType type, String path) {
 		if(path.equals("emptyPixel")){
 			this.object = new Sprite(new Texture(new Pixmap(1, 1, Format.Alpha)));
 			return;
 		}
-		switch (type) {
-		case MUSIC:
-			object = Gdx.audio.newMusic(Gdx.files.internal(path));
-			break;
-		case SOUND:
-			object = Gdx.audio.newSound(Gdx.files.internal(path));
-			break;
-		case SPRITE:
-			object = new Sprite(new Texture(Gdx.files.internal(path)));
-			break;
-		case MAP:
-			try{
-			object = new TmxMapLoader().load(path);
-			}catch(Exception e){
-				throw e;
-			}
-			break;
-		case SKIN:
-			object = new Skin(Gdx.files.internal(path));
-			break;
-		case ATLAS:
-			object = new TextureAtlas(path);
-			break;
-		default:
-			break;
-		}
+        object = switch (type) {
+            case MUSIC ->  Gdx.audio.newMusic(Gdx.files.internal(path));
+            case SOUND ->  Gdx.audio.newSound(Gdx.files.internal(path));
+            case SPRITE ->  new Sprite(new Texture(Gdx.files.internal(path)));
+            case MAP -> {
+                try {
+                    yield new TmxMapLoader().load(path);
+                } catch (Exception e) {
+                    throw e;
+                }
+            }
+            case SKIN ->  new Skin(Gdx.files.internal(path));
+            case ATLAS ->  new TextureAtlas(path);
+        };
 	}
-
-
-	//TODO: .as(Class<t>) return (t) object;
 
 	public Sprite asSprite() {
 		return (Sprite) object;

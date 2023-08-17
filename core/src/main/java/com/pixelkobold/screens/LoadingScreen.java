@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import com.pixelkobold.assets.AssetCategory;
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.assets.Assets;
 import com.pixelkobold.config.Config;
@@ -45,12 +44,7 @@ public class LoadingScreen implements Screen {
                 }
             }
             case 1 -> Assets.addAssets();
-            case 2 -> {
-                AssetManager.setGroups();
-
-                AssetManager.loadAll();
-            }
-//			GameObject.populateMap();
+            case 2 -> AssetManager.loadAll();
             case 5 -> Worlds.loadAll();
             case 20 -> ((Game) Gdx.app.getApplicationListener()).setScreen(Screens.MAIN_MENU_SCREEN);
         }
