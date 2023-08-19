@@ -1,5 +1,6 @@
 package com.pixelkobold.log;
 
+import com.badlogic.gdx.utils.TimeUtils;
 import com.pixelkobold.config.Config;
 import com.pixelkobold.util.GameUtils;
 import com.pixelkobold.util.SystemProperties;
@@ -61,5 +62,17 @@ public class Log {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String message(String message) {
+        Date date = new Date(TimeUtils.millis());
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("[");
+        sb.append(dateFormat.format(date));
+        sb.append("] ");
+        sb.append(message);
+
+        return sb.toString();
     }
 }
