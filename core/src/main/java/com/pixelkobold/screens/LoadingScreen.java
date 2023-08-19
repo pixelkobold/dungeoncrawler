@@ -32,14 +32,7 @@ public class LoadingScreen implements Screen {
         batch.end();
 
         switch (count) {
-            case 0 -> {
-                try {
-                    Config.init();
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
+            case 0 -> Config.init();
             case 1 -> Assets.addAssets();
             case 2 -> AssetManager.loadAll();
             case 5 -> Worlds.loadAll();

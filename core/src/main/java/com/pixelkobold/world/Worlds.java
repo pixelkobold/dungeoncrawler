@@ -27,7 +27,7 @@ public class Worlds {
         FileHandle dir = Gdx.files.internal("worlds/");
         for (FileHandle file : dir.list("json")) {
 //			WorldData worldData = json.fromJson(WorldData.class, file.readString());
-//          Gdx.app.debug("Worlds", Log.message("Adding world: " + file.nameWithoutExtension() + "\n" + worldData.toString()));
+//          Log.debug("Worlds", "Adding world: " + file.nameWithoutExtension() + "\n" + worldData.toString());
 //			worldMap.put(file.nameWithoutExtension(), worldData.toWorld());
         }
 
@@ -90,7 +90,7 @@ public class Worlds {
         Room bossRoom = new Room(boss, null, regulars.get(roomsAmount - 1), null, null);
         floor.addRoom(bossRoom);
 
-        Gdx.app.debug("Worlds", Log.message("Generated floor: " + floor.toString()));
+        Log.debug("Worlds", "Generated floor: " + floor.toString());
 
         return floor;
     }

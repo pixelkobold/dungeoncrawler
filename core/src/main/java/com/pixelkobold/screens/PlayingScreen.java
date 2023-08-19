@@ -28,11 +28,11 @@ public class PlayingScreen implements Screen {
     protected Skin skin;
 
     public static void setWorld(World w) {
-        Gdx.app.log("PlayingScreen", Log.message("Closing world: " + world.mapName));
+        Log.info("PlayingScreen","Closing world: " + world.mapName);
         if (world != null)
             world.close();
-        Gdx.app.log("PlayingScreen", Log.message("Loading world: " + w.mapName));
-        Gdx.app.log("PlayingScreen", Log.message("Loaded world: " + w.mapName));
+        Log.info("PlayingScreen", "Loading world: " + w.mapName);
+        Log.info("PlayingScreen", "Loaded world: " + w.mapName);
         world = w;
         Screens.PLAY_SCREEN.show();
     }
@@ -42,7 +42,7 @@ public class PlayingScreen implements Screen {
         if (world == null)
             world = new World("test_map1");
 
-        Gdx.app.log("PlayingScreen", Log.message("Initing world: " + world.mapName));
+        Log.info("PlayingScreen", "Initing world: " + world.mapName);
 
         world.init();
 
