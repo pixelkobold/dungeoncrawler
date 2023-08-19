@@ -1,19 +1,335 @@
 {
-    "activeFile": "HiddenJungle_TSX.tsx",
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "regular/map_jungle_010.tmx",
     "expandedProjectPaths": [
+        "entrance",
+        "rules",
+        "regular",
+        "boss",
         "."
     ],
+    "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
     "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
         "HiddenJungle_TSX.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 3,
             "scaleInEditor": 3
+        },
+        "TangerineTavernPNG_PetricakeGames.tsx": {
+            "scaleInDock": 1
+        },
+        "boss/map_jungle_boss_001.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 320.9842788790158,
+                "y": 318.2501708817499
+            }
+        },
+        "entrance/map_jungle_entrance_001.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.53520164046478,
+                "y": 238.68762816131238
+            }
+        },
+        "prototype_20x20.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 237.32057416267946
+            }
+        },
+        "prototype_20x30.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.35543403964454,
+                "y": 240.3280929596719
+            }
+        },
+        "prototype_20x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.21872863978132,
+                "y": 320.4374572795626
+            }
+        },
+        "prototype_20x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.6288448393712,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_30x20.tmx": {
+            "scale": 1.5932291666666665,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.07845701209547,
+                "y": 160.0523046747303
+            }
+        },
+        "prototype_30x30.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.73820915926177,
+                "y": 240.3280929596719
+            }
+        },
+        "prototype_30x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.05468215994532,
+                "y": 320.4374572795626
+            }
+        },
+        "prototype_30x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 241.28503075871492,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_40x20.tmx": {
+            "scale": 1.194921875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.1046093494607,
+                "y": 160.67996077149397
+            }
+        },
+        "prototype_40x30.tmx": {
+            "scale": 1.194921875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.1046093494607,
+                "y": 240.1830663615561
+            }
+        },
+        "prototype_40x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.9842788790158,
+                "y": 320.4374572795626
+            }
+        },
+        "prototype_40x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.5741626794259,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_50x20.tmx": {
+            "scale": 0.9559375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.13076168682585,
+                "y": 160.05230467473032
+            }
+        },
+        "prototype_50x30.tmx": {
+            "scale": 0.9559375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.13076168682585,
+                "y": 240.6015037593985
+            }
+        },
+        "prototype_50x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.82023239917976,
+                "y": 320.4374572795626
+            }
+        },
+        "prototype_50x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 399.86329460013667,
+                "y": 400.54682159945327
+            }
+        },
+        "regular/map_jungle_001.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 170.06151742993848
+            }
+        },
+        "regular/map_jungle_002.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.53520164046478,
+                "y": 239.50786056049213
+            }
+        },
+        "regular/map_jungle_003.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 239.917976760082,
+                "y": 238.68762816131238
+            }
+        },
+        "regular/map_jungle_004.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 165.14012303485987
+            }
+        },
+        "regular/map_jungle_005.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.53520164046478,
+                "y": 239.50786056049213
+            }
+        },
+        "regular/map_jungle_006.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 239.917976760082,
+                "y": 238.68762816131238
+            }
+        },
+        "regular/map_jungle_007.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 165.14012303485987
+            }
+        },
+        "regular/map_jungle_008.tmx": {
+            "scale": 0.9559375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.13076168682585,
+                "y": 159.00621118012424
+            }
+        },
+        "regular/map_jungle_009.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 165.14012303485987
+            }
+        },
+        "regular/map_jungle_010.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 159.53520164046478,
+                "y": 239.50786056049213
+            }
+        },
+        "rules/HiddenJungle_TSX.tsx": {
+            "scaleInDock": 1
+        },
+        "rules/background_cleanup.tmx": {
+            "scale": 5.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 54.09090909090909,
+                "y": 41.090909090909086
+            }
+        },
+        "rules/floors.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 399.83333333333326,
+                "y": 239.99999999999997
+            }
+        },
+        "rules/objects.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 5.5,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 399.9090909090909,
+                "y": 400
+            }
+        },
+        "rules/walls.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 892.5,
+                "y": 82.33333333333331
+            }
+        },
+        "test.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 247.25,
+                "y": 129
+            }
+        },
+        "walls.tmx": {
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 849.5,
+                "y": 63.66666666666666
+            }
         }
     },
+    "last.externalTilesetPath": "/home/luna/MEGAsync/programming/pixel kobold/tiled/petri/jungle",
+    "map.height": 5,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 5,
     "openFiles": [
-        "HiddenJungle_TSX.tsx"
+        "entrance/map_jungle_entrance_001.tmx",
+        "regular/map_jungle_003.tmx",
+        "regular/map_jungle_005.tmx",
+        "regular/map_jungle_006.tmx",
+        "regular/map_jungle_008.tmx",
+        "regular/map_jungle_009.tmx",
+        "regular/map_jungle_010.tmx"
     ],
     "project": "jungle.tiled-project",
     "recentFiles": [
-        "HiddenJungle_TSX.tsx"
+        "entrance/map_jungle_entrance_001.tmx",
+        "regular/map_jungle_003.tmx",
+        "regular/map_jungle_005.tmx",
+        "regular/map_jungle_006.tmx",
+        "regular/map_jungle_008.tmx",
+        "regular/map_jungle_009.tmx",
+        "regular/map_jungle_010.tmx",
+        "regular/map_jungle_007.tmx",
+        "regular/map_jungle_004.tmx",
+        "regular/map_jungle_002.tmx",
+        "regular/map_jungle_001.tmx",
+        "prototype_20x20.tmx"
     ]
 }

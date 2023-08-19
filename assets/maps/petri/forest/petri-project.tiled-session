@@ -3,12 +3,16 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "FaerieForest_PetricakeGamesTSX.tsx",
+    "activeFile": "rules/floors.tmx",
     "expandedProjectPaths": [
         "test_maps",
+        "boss",
+        "rules",
+        "regular",
+        "entrance",
+        "other maps to organize",
         "jungle",
-        ".",
-        "other maps to organize"
+        "."
     ],
     "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
     "fileStates": {
@@ -46,8 +50,8 @@
             "scale": 0.9143749999999999,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 320.4374572795625,
-                "y": 475.73479152426523
+                "x": 319.3438140806562,
+                "y": 319.34381408065616
             }
         },
         "entrance/FaerieForest_PetricakeGamesTSX.tsx": {
@@ -57,8 +61,8 @@
             "scale": 1.8287499999999999,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 160.21872863978126,
-                "y": 237.86739576213262
+                "x": 159.6719070403281,
+                "y": 159.67190704032808
             }
         },
         "forest_001.tmx": {
@@ -168,6 +172,62 @@
                 "y": 70.99999999999999
             }
         },
+        "prototype.tmx": {
+            "scale": 1.5635416666666666,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 237.92138574283808,
+                "y": 237.92138574283808
+            }
+        },
+        "prototype_20x20.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 256,
+                "y": 78
+            }
+        },
+        "prototype_30x20.tmx": {
+            "scale": 1.5160416666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.09894187165042,
+                "y": 160.2858320736567
+            }
+        },
+        "prototype_30x30.tmx": {
+            "scale": 1.5160416666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 240.09894187165042,
+                "y": 240.09894187165045
+            }
+        },
+        "prototype_40x20.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 208,
+                "y": 139.99999999999997
+            }
+        },
+        "prototype_50x30.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 108,
+                "y": 186.66666666666663
+            }
+        },
+        "prototype_50x50.tmx": {
+            "scale": 0.909625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.1649031194173,
+                "y": 400.16490311941726
+            }
+        },
         "prototype_outside.tmx": {
             "scale": 2,
             "selectedLayer": 0,
@@ -235,28 +295,116 @@
                 "y": 140.25974025974025
             }
         },
+        "regular/map_forest_008.tmx": {
+            "scale": 3.127083333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 118.64090606262492,
+                "y": 76.42904730179882
+            }
+        },
+        "regular/map_forest_009.tmx": {
+            "scale": 1.5635416666666666,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 239.84010659560295,
+                "y": 239.84010659560292
+            }
+        },
+        "regular/map_forest_010.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 240,
+                "y": 239.99999999999997
+            }
+        },
+        "regular/map_forest_011.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 218,
+                "y": 240.66666666666663
+            }
+        },
+        "regular/map_forest_012.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 167.33333333333334,
+                "y": 241.33333333333337
+            }
+        },
+        "regular/map_forest_013.tmx": {
+            "scale": 1,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 127,
+                "y": 248
+            }
+        },
+        "regular/map_forest_014.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 142.66666666666669,
+                "y": 497.33333333333326
+            }
+        },
+        "regular/map_forest_015.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 350,
+                "y": 139.33333333333331
+            }
+        },
+        "regular/map_forest_016.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 410.5,
+                "y": 42
+            }
+        },
+        "regular/map_forest_017.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 256,
+                "y": 389.33333333333337
+            }
+        },
+        "regular/map_forest_018.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 281.25,
+                "y": 233.5
+            }
+        },
         "rules/background.tmx": {
             "scale": 4,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 47.25,
-                "y": 24.25
+                "x": 40.125,
+                "y": 40
             }
         },
         "rules/background_cleanup.tmx": {
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 39.75,
-                "y": 39.75
+                "x": 40.125,
+                "y": 40
             }
         },
         "rules/floors.tmx": {
             "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 320,
-                "y": 240
+                "x": 373.25,
+                "y": 106
             }
         },
         "rules/floors_leaves.tmx": {
@@ -330,18 +478,18 @@
             }
         },
         "rules/walls.tmx": {
-            "scale": 5.5,
-            "selectedLayer": 1,
+            "scale": 3,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 755.3636363636364,
-                "y": 146.90909090909093
+                "x": 495.5,
+                "y": 158.99999999999997
             }
         },
         "rules/walls_pattern.tmx": {
-            "scale": 4,
-            "selectedLayer": 1,
+            "scale": 2,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 241,
+                "x": 240.75,
                 "y": 239.5
             }
         },
@@ -373,21 +521,25 @@
     "map.tileWidth": 16,
     "map.width": 30,
     "openFiles": [
-        "FaerieForest_PetricakeGamesTSX.tsx"
+        "rules/walls.tmx",
+        "rules/walls_pattern.tmx",
+        "rules/floors.tmx",
+        "rules/background.tmx",
+        "rules/background_cleanup.tmx"
     ],
     "project": "petri-project.tiled-project",
     "recentFiles": [
-        "FaerieForest_PetricakeGamesTSX.tsx",
-        "regular/map_forest_007.tmx",
-        "regular/map_forest_006.tmx",
-        "regular/map_forest_005.tmx",
-        "regular/map_forest_004.tmx",
-        "regular/map_forest_003.tmx",
-        "regular/map_forest_002.tmx",
-        "regular/map_forest_001.tmx",
-        "entrance/map_forest_entrance_001.tmx",
-        "boss/map_forest_boss_001.tmx",
-        "map_forest_001.tmx",
-        "map_forest_002.tmx"
+        "rules/walls.tmx",
+        "rules/walls_pattern.tmx",
+        "rules/background_cleanup.tmx",
+        "rules/background.tmx",
+        "rules/floors.tmx",
+        "regular/map_forest_018.tmx",
+        "regular/map_forest_016.tmx",
+        "regular/map_forest_015.tmx",
+        "regular/map_forest_014.tmx",
+        "regular/map_forest_013.tmx",
+        "regular/map_forest_017.tmx",
+        "FaerieForest_PetricakeGamesTSX.tsx"
     ]
 }
