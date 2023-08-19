@@ -30,6 +30,5 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: Build with Gradle
-      with:
-        run: ./gradlew build --no-daemon
+      run: ./gradlew build --no-daemon
         
