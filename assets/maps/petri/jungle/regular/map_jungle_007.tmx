@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="57">
+ <tileset firstgid="1" source="../HiddenJungle_TSX.tsx"/>
+ <layer id="1" name="prototype" width="20" height="20">
+  <data encoding="csv">
+97,97,97,97,97,97,97,97,97,97,97,97,98,101,98,97,97,97,97,97,
+97,97,97,97,97,97,97,97,97,97,97,97,98,101,98,97,97,97,97,97,
+97,97,97,97,98,98,98,98,104,98,98,104,98,101,98,98,97,97,97,97,
+97,97,97,97,98,98,98,98,98,98,98,98,98,101,98,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+98,98,104,98,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+98,98,98,98,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+98,98,98,98,98,101,101,101,101,101,101,101,101,101,101,98,97,97,97,97,
+97,97,97,97,98,98,101,98,98,98,98,98,98,98,98,98,97,97,97,97,
+97,97,97,97,97,98,101,98,97,97,97,97,97,97,97,97,97,97,97,97,
+97,97,97,97,97,98,101,98,97,97,97,97,97,97,97,97,97,97,97,97
+</data>
+ </layer>
+ <layer id="11" name="base" width="20" height="20">
+  <data encoding="csv">
+31,31,31,31,31,31,31,31,31,31,31,31,17,55,20,31,31,31,31,31,
+31,31,31,31,1,5,5,5,5,5,5,5,38,55,41,4,31,31,31,31,
+31,31,31,31,17,105,105,105,7,105,105,7,106,55,107,20,31,31,31,31,
+31,31,31,31,17,8,8,8,8,8,8,8,54,55,57,20,31,31,31,31,
+31,31,31,31,17,39,24,24,23,24,24,23,24,71,87,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,17,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+5,5,5,5,38,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+105,105,7,105,106,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+8,8,8,8,54,55,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+24,24,23,24,24,71,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+6,6,6,6,25,85,37,37,37,37,37,37,37,37,37,20,31,31,31,31,
+31,31,31,31,49,6,85,9,6,6,6,6,6,6,6,52,31,31,31,31,
+31,31,31,31,31,17,55,20,31,31,31,31,31,31,31,31,31,31,31,31,
+31,31,31,31,31,17,55,20,31,31,31,31,31,31,31,31,31,31,31,31
+</data>
+ </layer>
+ <objectgroup id="12" name="objects_02">
+  <object id="6" name="spikes_activated" gid="81" x="160" y="112" width="16" height="16"/>
+  <object id="8" name="spikes_activated" gid="81" x="176" y="112" width="16" height="16"/>
+  <object id="10" name="spikes_activated" gid="81" x="160" y="128" width="16" height="16"/>
+  <object id="12" name="spikes_activated" gid="81" x="176" y="128" width="16" height="16"/>
+  <object id="14" name="spikes_activated" gid="81" x="128" y="144" width="16" height="16"/>
+  <object id="16" name="spikes_activated" gid="81" x="144" y="144" width="16" height="16"/>
+  <object id="18" name="spikes_activated" gid="81" x="192" y="144" width="16" height="16"/>
+  <object id="20" name="spikes_activated" gid="81" x="208" y="144" width="16" height="16"/>
+  <object id="22" name="spikes_activated" gid="81" x="128" y="160" width="16" height="16"/>
+  <object id="24" name="spikes_activated" gid="81" x="144" y="160" width="16" height="16"/>
+  <object id="26" name="spikes_activated" gid="81" x="192" y="160" width="16" height="16"/>
+  <object id="28" name="spikes_activated" gid="81" x="208" y="160" width="16" height="16"/>
+  <object id="30" name="spikes_activated" gid="81" x="160" y="176" width="16" height="16"/>
+  <object id="32" name="spikes_activated" gid="81" x="176" y="176" width="16" height="16"/>
+  <object id="34" name="spikes_activated" gid="81" x="160" y="192" width="16" height="16"/>
+  <object id="36" name="spikes_activated" gid="81" x="176" y="192" width="16" height="16"/>
+  <object id="38" name="spikes_activated" gid="81" x="128" y="208" width="16" height="16"/>
+  <object id="40" name="spikes_activated" gid="81" x="144" y="208" width="16" height="16"/>
+  <object id="42" name="spikes_activated" gid="81" x="128" y="224" width="16" height="16"/>
+  <object id="44" name="spikes_activated" gid="81" x="144" y="224" width="16" height="16"/>
+  <object id="46" name="spikes_activated" gid="81" x="96" y="240" width="16" height="16"/>
+  <object id="48" name="spikes_activated" gid="81" x="112" y="240" width="16" height="16"/>
+  <object id="50" name="spikes_activated" gid="81" x="96" y="256" width="16" height="16"/>
+  <object id="52" name="spikes_activated" gid="81" x="112" y="256" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="13" name="objects_01">
+  <object id="5" name="spikes_retracted" gid="65" x="160" y="112" width="16" height="16"/>
+  <object id="7" name="spikes_retracted" gid="65" x="176" y="112" width="16" height="16"/>
+  <object id="9" name="spikes_retracted" gid="65" x="160" y="128" width="16" height="16"/>
+  <object id="11" name="spikes_retracted" gid="65" x="176" y="128" width="16" height="16"/>
+  <object id="13" name="spikes_retracted" gid="65" x="128" y="144" width="16" height="16"/>
+  <object id="15" name="spikes_retracted" gid="65" x="144" y="144" width="16" height="16"/>
+  <object id="17" name="spikes_retracted" gid="65" x="192" y="144" width="16" height="16"/>
+  <object id="19" name="spikes_retracted" gid="65" x="208" y="144" width="16" height="16"/>
+  <object id="21" name="spikes_retracted" gid="65" x="128" y="160" width="16" height="16"/>
+  <object id="23" name="spikes_retracted" gid="65" x="144" y="160" width="16" height="16"/>
+  <object id="25" name="spikes_retracted" gid="65" x="192" y="160" width="16" height="16"/>
+  <object id="27" name="spikes_retracted" gid="65" x="208" y="160" width="16" height="16"/>
+  <object id="29" name="spikes_retracted" gid="65" x="160" y="176" width="16" height="16"/>
+  <object id="31" name="spikes_retracted" gid="65" x="176" y="176" width="16" height="16"/>
+  <object id="33" name="spikes_retracted" gid="65" x="160" y="192" width="16" height="16"/>
+  <object id="35" name="spikes_retracted" gid="65" x="176" y="192" width="16" height="16"/>
+  <object id="37" name="spikes_retracted" gid="65" x="128" y="208" width="16" height="16"/>
+  <object id="39" name="spikes_retracted" gid="65" x="144" y="208" width="16" height="16"/>
+  <object id="41" name="spikes_retracted" gid="65" x="128" y="224" width="16" height="16"/>
+  <object id="43" name="spikes_retracted" gid="65" x="144" y="224" width="16" height="16"/>
+  <object id="45" name="spikes_retracted" gid="65" x="96" y="240" width="16" height="16"/>
+  <object id="47" name="spikes_retracted" gid="65" x="112" y="240" width="16" height="16"/>
+  <object id="49" name="spikes_retracted" gid="65" x="96" y="256" width="16" height="16"/>
+  <object id="51" name="spikes_retracted" gid="65" x="112" y="256" width="16" height="16"/>
+  <object id="53" name="south_exit" x="103.636" y="318.909">
+   <point/>
+  </object>
+  <object id="54" name="south_exit" x="103.636" y="318.909">
+   <point/>
+  </object>
+  <object id="55" name="north_exit" x="216" y="1.818">
+   <point/>
+  </object>
+  <object id="56" name="west_exit" x="1.2727" y="240.727">
+   <point/>
+  </object>
+ </objectgroup>
+</map>

@@ -3,77 +3,358 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "rules/floors.tmx",
+    "activeFile": "regular/map_tangerine_010.tmx",
     "expandedProjectPaths": [
+        ".",
         "rules",
-        "."
+        "boss",
+        "regular",
+        "entrance"
     ],
     "file.lastUsedOpenFilter": "Wszystkie pliki (*)",
     "fileStates": {
+        ":/automap-tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "FaerieForest_PetricakeGamesTSX.tsx": {
+            "scaleInDock": 1
+        },
+        "FrostChill_tsx.tsx": {
+            "scaleInDock": 1
+        },
         "TangerineTavernPNG_PetricakeGames.tsx": {
             "scaleInDock": 3,
-            "scaleInEditor": 4
+            "scaleInEditor": 5.5
+        },
+        "boss/map_tangerine_boss_001.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 237.45727956254268,
+                "y": 236.226930963773
+            }
+        },
+        "entrance/map_tangerine_entrance_001.tmx": {
+            "scale": 1.78125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.28070175438594,
+                "y": 240.28070175438594
+            }
+        },
+        "entrance/map_tavern_entrance_001.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 155.43403964456598,
+                "y": 243.60902255639098
+            }
+        },
+        "map_tangerine_001.tmx": {
+            "scale": 2,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 157.5,
+                "y": 149.5
+            }
+        },
+        "prototype_20x20.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 158.57826384142174
+            }
+        },
+        "prototype_20x30.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 224.33333333333334,
+                "y": 197.33333333333337
+            }
+        },
+        "prototype_20x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 160.21872863978132,
+                "y": 313.8755980861244
+            }
+        },
+        "prototype_20x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 157.8947368421052,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_30x20.tmx": {
+            "scale": 1.5932291666666665,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 238.82314481856818,
+                "y": 158.796992481203
+            }
+        },
+        "prototype_30x30.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 238.27751196172244,
+                "y": 237.8673957621326
+            }
+        },
+        "prototype_30x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 238.961038961039,
+                "y": 316.0628844839371
+            }
+        },
+        "prototype_30x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 239.91797676008207,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_40x20.tmx": {
+            "scale": 1.194921875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.1046093494607,
+                "y": 157.33246158875454
+            }
+        },
+        "prototype_40x30.tmx": {
+            "scale": 1.194921875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.1046093494607,
+                "y": 238.5093167701864
+            }
+        },
+        "prototype_40x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.9842788790158,
+                "y": 316.0628844839371
+            }
+        },
+        "prototype_40x50.tmx": {
+            "scale": 0.7314999999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.5741626794259,
+                "y": 400.54682159945327
+            }
+        },
+        "prototype_50x20.tmx": {
+            "scale": 0.9559375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.13076168682585,
+                "y": 160.05230467473032
+            }
+        },
+        "prototype_50x30.tmx": {
+            "scale": 0.9559375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.13076168682585,
+                "y": 239.55541026479244
+            }
+        },
+        "prototype_50x40.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 398.63294600136703,
+                "y": 318.2501708817499
+            }
+        },
+        "prototype_50x50.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 279,
+                "y": 211.33333333333337
+            }
+        },
+        "regular/TangerineTavernPNG_PetricakeGames.tsx": {
+            "scaleInDock": 1
+        },
+        "regular/map_tangerine_001.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 255.66666666666666,
+                "y": 212.66666666666663
+            }
+        },
+        "regular/map_tangerine_002.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 223,
+                "y": 194.66666666666663
+            }
+        },
+        "regular/map_tangerine_003.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 158.57826384142174
+            }
+        },
+        "regular/map_tangerine_004.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 347,
+                "y": 350
+            }
+        },
+        "regular/map_tangerine_005.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 503.3333333333333,
+                "y": -41.33333333333337
+            }
+        },
+        "regular/map_tangerine_006.tmx": {
+            "scale": 1.2191666666666667,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 237.45727956254268,
+                "y": 237.04716336295283
+            }
+        },
+        "regular/map_tangerine_007.tmx": {
+            "scale": 2,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 94.75,
+                "y": 288.5
+            }
+        },
+        "regular/map_tangerine_008.tmx": {
+            "scale": 0.9143749999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 238.961038961039,
+                "y": 314.96924128503076
+            }
+        },
+        "regular/map_tangerine_009.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 223.66666666666669,
+                "y": 197.33333333333337
+            }
+        },
+        "regular/map_tangerine_010.tmx": {
+            "scale": 1.8287499999999999,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 160.4921394395079,
+                "y": 158.03144224196856
+            }
+        },
+        "rules/background_cleanup.tmx": {
+            "scale": 4,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 102.375,
+                "y": 64
+            }
         },
         "rules/floors.tmx": {
             "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 218,
-                "y": 176.5
+                "x": 524.75,
+                "y": 208
+            }
+        },
+        "rules/objects.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 8,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 114.4375,
+                "y": 72.625
             }
         },
         "rules/walls.tmx": {
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 75.33333333333331,
-                "y": -17.33333333333337
+                "x": 655.25,
+                "y": 181
             }
         },
         "rules/walls_pattern.tmx": {
             "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 400,
-                "y": 160
+                "x": 524.75,
+                "y": 208
             }
         },
         "rules/walls_shadows.tmx": {
             "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 449.66666666666663,
-                "y": 97.66666666666669
+                "x": 523.1666666666666,
+                "y": 191.33333333333331
             }
         },
         "test.tmx": {
-            "scale": 4,
+            "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 173.25,
-                "y": 150
+                "x": 112,
+                "y": 134.66666666666669
             }
         }
     },
+    "last.externalTilesetPath": "/home/luna/MEGAsync/programming/pixel kobold/tiled/petri/tavern",
+    "map.height": 5,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 50,
+    "map.width": 5,
     "openFiles": [
-        "TangerineTavernPNG_PetricakeGames.tsx",
-        "test.tmx",
-        "rules/walls_pattern.tmx",
         "rules/walls.tmx",
-        "rules/walls_shadows.tmx",
-        "rules/floors.tmx"
+        "regular/map_tangerine_008.tmx",
+        "regular/map_tangerine_009.tmx",
+        "regular/map_tangerine_010.tmx"
     ],
     "project": "tangerine_tavern.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
-        "TangerineTavernPNG_PetricakeGames.tsx",
-        "test.tmx",
-        "rules/walls_pattern.tmx",
         "rules/walls.tmx",
-        "rules/walls_shadows.tmx",
-        "rules/floors.tmx"
+        "regular/map_tangerine_008.tmx",
+        "regular/map_tangerine_009.tmx",
+        "regular/map_tangerine_010.tmx",
+        "regular/map_tangerine_007.tmx",
+        "TangerineTavernPNG_PetricakeGames.tsx",
+        "rules/objects.tmx",
+        "regular/map_tangerine_004.tmx",
+        "prototype_30x40.tmx",
+        "boss/map_tangerine_boss_001.tmx",
+        "entrance/map_tangerine_entrance_001.tmx",
+        "prototype_20x40.tmx"
     ]
 }
