@@ -13,7 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar.ProgressBarStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pixelkobold.config.Config;
 import com.pixelkobold.log.Log;
-import com.pixelkobold.log.LogLevel;
 import com.pixelkobold.world.World;
 import lombok.Getter;
 
@@ -29,11 +28,11 @@ public class PlayingScreen implements Screen {
     protected Skin skin;
 
     public static void setWorld(World w) {
-        Log.log(LogLevel.DEBUG, "Closing world: " + world.mapName);
+        Log.info("PlayingScreen","Closing world: " + world.mapName);
         if (world != null)
             world.close();
-        Log.log(LogLevel.DEBUG, "Loading world: " + w.mapName);
-        Log.log(LogLevel.DEBUG, "Loaded world: " + w.mapName);
+        Log.info("PlayingScreen", "Loading world: " + w.mapName);
+        Log.info("PlayingScreen", "Loaded world: " + w.mapName);
         world = w;
         Screens.PLAY_SCREEN.show();
     }
@@ -43,7 +42,7 @@ public class PlayingScreen implements Screen {
         if (world == null)
             world = new World("test_map1");
 
-        Log.log(LogLevel.DEBUG, "Initing world: " + world.mapName);
+        Log.info("PlayingScreen", "Initing world: " + world.mapName);
 
         world.init();
 

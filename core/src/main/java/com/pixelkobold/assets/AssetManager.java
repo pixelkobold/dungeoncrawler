@@ -3,7 +3,7 @@ package com.pixelkobold.assets;
 import com.badlogic.gdx.utils.Array;
 import com.pixelkobold.assets.Asset.AssetType;
 import com.pixelkobold.log.Log;
-import com.pixelkobold.log.LogLevel;
+
 
 import java.util.HashMap;
 
@@ -19,7 +19,7 @@ public class AssetManager {
 
         for (AssetDescriptor descriptor : descriptors) {
             if (assets.containsKey(descriptor.name())) {
-                Log.log(LogLevel.INFO, "Asset with name " + descriptor.name() + " is already loaded! Skipping!");
+                Log.info("AssetManager","Asset with name " + descriptor.name() + " is already loaded! Skipping!");
                 continue;
             }
             assets.put(descriptor.name(), new Asset(descriptor.type(), descriptor.path()));
@@ -30,7 +30,7 @@ public class AssetManager {
 
     public static void addToLoad(AssetDescriptor asset) {
         descriptors.add(asset);
-        Log.log(LogLevel.INFO, "Adding Asset to load. Asset: " + asset.toString());
+        Log.info("AssetManager", "Adding Asset to load. Asset: " + asset.toString());
     }
 
     /**
@@ -42,7 +42,7 @@ public class AssetManager {
     }
 
     public static void load(AssetDescriptor descriptor) {
-        Log.log(LogLevel.DEBUG, "Loading on-demand asset: " + descriptor.toString());
+        Log.info("AssetManager", "Loading on-demand asset: " + descriptor.toString());
         Asset asset = new Asset(descriptor.type(), descriptor.path());
         assets.put(descriptor.name(), asset);
     }

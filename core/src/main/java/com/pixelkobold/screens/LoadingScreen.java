@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.pixelkobold.assets.AssetManager;
 import com.pixelkobold.assets.Assets;
 import com.pixelkobold.config.Config;
-import com.pixelkobold.log.Log;
 import com.pixelkobold.world.Worlds;
 
 public class LoadingScreen implements Screen {
@@ -33,15 +32,7 @@ public class LoadingScreen implements Screen {
         batch.end();
 
         switch (count) {
-            case 0 -> {
-                try {
-                    Log.init();
-                    Config.init();
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
+            case 0 -> Config.init();
             case 1 -> Assets.addAssets();
             case 2 -> AssetManager.loadAll();
             case 5 -> Worlds.loadAll();

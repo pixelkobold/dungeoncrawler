@@ -7,7 +7,6 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.pixelkobold.log.Log;
-import com.pixelkobold.log.LogLevel;
 
 
 public class Worlds {
@@ -18,7 +17,7 @@ public class Worlds {
         if (worldMap.get(worldName) != null) {
             return worldMap.get(worldName);
         }
-        Log.log(LogLevel.CRITICAL, "No map with name " + worldName + "exists! Aborting");
+        Gdx.app.error("Worlds", "No map with name " + worldName + "exists! Aborting");
         Gdx.app.exit();
         return null;
     }
@@ -28,7 +27,7 @@ public class Worlds {
         FileHandle dir = Gdx.files.internal("worlds/");
         for (FileHandle file : dir.list("json")) {
 //			WorldData worldData = json.fromJson(WorldData.class, file.readString());
-//			Log.log(LogLevel.DEBUG, "Adding world: " + file.nameWithoutExtension() + "\n" + worldData.toString());
+//          Log.debug("Worlds", "Adding world: " + file.nameWithoutExtension() + "\n" + worldData.toString());
 //			worldMap.put(file.nameWithoutExtension(), worldData.toWorld());
         }
 
@@ -91,7 +90,7 @@ public class Worlds {
         Room bossRoom = new Room(boss, null, regulars.get(roomsAmount - 1), null, null);
         floor.addRoom(bossRoom);
 
-        Log.log(LogLevel.DEBUG, floor.toString());
+        Log.debug("Worlds", "Generated floor: " + floor.toString());
 
         return floor;
     }
