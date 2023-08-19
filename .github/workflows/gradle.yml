@@ -31,9 +31,3 @@ jobs:
         cache: gradle
     - name: Build with Gradle
       run: ./gradlew build --no-daemon
-    - name: Upload to release
-      uses: Shopify/upload-to-release@v1.0.1
-      with:
-        name: DungeonCrawler-${{ github.GITHUB_SHA }}.jar
-        path: lwjgl3/build/lib/DungeonCrawler-1.0.0.jar
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
